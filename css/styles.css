@@ -1,0 +1,1653 @@
+/* ============================================================
+   COPAIN BOULANGERIE — V2
+   Faithful to: our-story.png + our-breads.jpg reference
+   ============================================================ */
+
+/* — Fonts ——————————————————————————————————————————————————— */
+@import url("https://use.typekit.net/hly1zzp.css");
+
+@font-face {
+  font-family: 'TAY Birdie';
+  src: url('../../Fonts/TAY Birdie/TAYBirdie.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../../Fonts/Baskerville/Baskerville-01.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../../Fonts/Baskerville/Baskerville-Italic-03.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../../Fonts/Baskerville/Baskerville-SemiBold-05.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Baskerville';
+  src: url('../../Fonts/Baskerville/Baskerville-SemiBoldItalic-06.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* — Variables ——————————————————————————————————————————————— */
+:root {
+  --black:       #0c0c0c;
+  --white:       #ffffff;
+  --cream:       #f3efe6;
+  --cream-mid:   #e8e3d8;
+  --text:        #1c1c1c;
+  --text-mid:    #505050;
+  --text-light:  #999;
+  --border:      #d4cec4;
+
+  --font-display: 'Altesse std', 'TAY Birdie', Georgia, serif;
+  --font-serif:   'Baskerville', Georgia, 'Times New Roman', serif;
+
+  --track:       0.10em;
+  --track-wide:  0.20em;
+  --track-x:     0.28em;
+}
+
+/* — Reset ——————————————————————————————————————————————————— */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-serif);
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img   { display: block; }
+a     { text-decoration: none; color: inherit; }
+ul    { list-style: none; }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  padding: 20px 28px;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Our Breads — nav always reads dark regardless of scroll position */
+.site-nav--always-dark {
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+}
+.site-nav--always-dark .nav__wordmark img {
+  filter: none;
+}
+.site-nav--always-dark .nav__burger span {
+  background: var(--black);
+}
+.site-nav--always-dark .nav__action {
+  color: var(--text-mid);
+}
+.site-nav--always-dark .nav__action:hover {
+  color: var(--black);
+}
+
+.site-nav.is-solid {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+}
+
+/* Hamburger */
+.nav__burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: -5px;
+  flex-shrink: 0;
+  /* Reset <button> defaults */
+  background: transparent;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.nav__burger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--white);
+  border-radius: 1px;
+  transition: background 0.4s;
+}
+.site-nav.is-solid .nav__burger span {
+  background: var(--black);
+}
+
+/* Centred wordmark */
+.nav__wordmark {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav__wordmark img {
+  height: 44px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.4s;
+}
+.site-nav.is-solid .nav__wordmark img {
+  filter: none;
+}
+
+/* Right link */
+.nav__action {
+  margin-left: auto;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.4s;
+}
+.site-nav.is-solid .nav__action {
+  color: var(--text-mid);
+}
+.nav__action:hover {
+  color: var(--white);
+}
+.site-nav.is-solid .nav__action:hover {
+  color: var(--black);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.60) 100%
+  );
+}
+
+/* Circular monogram badge (Our Breads) */
+.hero__badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.hero__badge-ring {
+  width: 96px;
+  height: 96px;
+  border: 1.5px solid rgba(255, 255, 255, 0.60);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__badge-letter {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: rgba(255, 255, 255, 0.80);
+  line-height: 1;
+  margin-top: 4px; /* optical */
+}
+
+/* ============================================================
+   BREADS PAGE — FRAMED INTRO HERO  (our-breads.html only)
+   ============================================================ */
+
+/* Full-viewport section — padding clears the fixed nav (~92px) + breathing room */
+.breads-hero {
+  background: var(--white);
+  height: 100vh;
+  min-height: 600px;
+  padding: 112px 52px 80px; /* 80px below frame = standard section gap */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Outer frame — solid black border, white padding creates the mat gap */
+.breads-hero__frame {
+  flex: 1;
+  border: 2px solid var(--black);
+  padding: 12px;
+  background: var(--white);
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+/* Inner mat — clips the photo, contains all overlays */
+.breads-hero__mat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Full-bleed BW photo fills the mat */
+.breads-hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+/* Subtle overall darkening so text + badge read cleanly */
+.breads-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.20);
+  z-index: 1;
+}
+
+/* Centered column: tagline sits directly above the C badge */
+.breads-hero__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* "THE PERFECT COMBINATION…" — centered, 3× size */
+.breads-hero__tagline {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* C monogram badge */
+.breads-hero__badge img {
+  width: 108px;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   EDITORIAL SECTION  — single column (our-story.html)
+   ============================================================ */
+.editorial {
+  background: var(--white);
+  padding: 96px 48px 88px;
+  text-align: center;
+}
+
+.editorial__inner {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   EDITORIAL — two-column split modifier (our-breads.html only)
+   Image fills left column, grey copy fills right column
+   ============================================================ */
+.editorial--split {
+  padding: 0 0 80px; /* 80px below = standard section gap */
+  text-align: left;
+}
+
+.editorial--split .editorial__inner {
+  max-width: none;   /* override base .editorial__inner max-width: 540px */
+  margin: 0;         /* override base margin: 0 auto */
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+/* Left: image covers the full column height */
+.editorial--split .editorial__image {
+  overflow: hidden;
+  aspect-ratio: auto;
+  min-height: 480px;
+}
+
+.editorial--split .editorial__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Right: grey background copy column */
+.editorial--split .editorial__copy {
+  background: #E5E5E5;
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* prevents buttons from stretching full-width */
+}
+
+.editorial__heading {
+  font-family: var(--font-display);
+  font-size: clamp(60px, 7.5vw, 100px);
+  font-weight: 400;
+  line-height: 0.92;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+
+/* Bread illustration beneath the heading */
+.editorial__illus {
+  display: block;
+  height: 64px;
+  width: auto;
+  margin: 0 auto 28px;
+  mix-blend-mode: multiply;
+  opacity: 0.70;
+}
+
+.editorial__body {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.88;
+  color: var(--text-mid);
+  margin-bottom: 40px;
+}
+
+.btn-border {
+  display: inline-block;
+  border: 2px solid var(--black);
+  padding: 14px 36px;
+  font-family: 'TAY Birdie', serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+  transition: background 0.25s, color 0.25s;
+}
+.btn-border:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ============================================================
+   2-MODULE SECTION  (Breads / Pastries)
+   ============================================================ */
+.modules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.module {
+  position: relative;
+  overflow: hidden;
+}
+
+.module__image {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  position: relative;
+}
+
+.module__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: brightness(0.72);
+}
+
+.module:hover .module__image img {
+  transform: scale(1.04);
+  filter: brightness(0.6);
+}
+
+/* Subtle overall scrim for label legibility */
+.module__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.10);
+  pointer-events: none;
+}
+
+/* Label centred over the image */
+.module__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  letter-spacing: var(--track-x);
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  text-decoration-color: rgba(255,255,255,0.55);
+  transition: text-decoration-color 0.2s;
+  z-index: 2;
+}
+
+.module__label:hover {
+  text-decoration-color: var(--white);
+}
+
+/* Bottom spacing for modules when preceding a footer/partners block */
+.modules {
+  margin-bottom: 80px;
+}
+
+/* Rectangular outlined CTA button — used on our-breads.html shop modules */
+.module__btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  min-width: 280px;
+  padding: 18px 48px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  font-family: 'TAY Birdie', serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  z-index: 2;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.module__btn:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 1);
+  color: var(--white);
+}
+
+/* ============================================================
+   TRADITION SECTION  (cream + "La tradition de soi")
+   ============================================================ */
+.tradition {
+  background: var(--white);
+  text-align: center;
+  padding: 0 48px 0;
+}
+
+.tradition__ornament {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.tradition__ornament img {
+  height: 68px;
+  width: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.60;
+}
+
+.tradition__heading {
+  font-family: var(--font-display);
+  font-size: clamp(46px, 6vw, 88px);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+
+.tradition__sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: var(--track);
+  color: var(--text-light);
+  margin-bottom: 56px;
+}
+
+/* ============================================================
+   VIDEO CAROUSEL
+   ============================================================ */
+.video-carousel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.video-track {
+  display: flex;
+  gap: 12px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.video-slide {
+  /* 56 % wide — leaves adjacent slides peeking in on desktop */
+  flex: 0 0 56%;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+.video-slide__inner {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.video-slide__inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65);
+  transition: filter 0.3s ease, transform 0.6s ease;
+}
+
+.video-slide:hover .video-slide__inner img {
+  filter: brightness(0.5);
+  transform: scale(1.03);
+}
+
+/* Inset border frame — matches reference */
+.video-slide__frame {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  pointer-events: none;
+  z-index: 3;
+  transition: border-color 0.25s;
+}
+
+.video-slide:hover .video-slide__frame {
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+/* Episode label — top-left inside the frame */
+.video-slide__episode {
+  position: absolute;
+  top: 26px;
+  left: 26px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.80);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.video-slide__episode strong {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Centred play button */
+.video-slide__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+}
+
+.video-slide__play-btn {
+  width: 54px;
+  height: 54px;
+  border: 1.5px solid rgba(255, 255, 255, 0.70);
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.video-slide:hover .video-slide__play-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--white);
+  transform: scale(1.1);
+}
+
+.video-slide__play-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255, 255, 255, 0.85);
+  margin-left: 3px;
+}
+
+/* Prev / Next arrow buttons */
+.video-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.70);
+  transition: color 0.2s;
+}
+
+.video-nav:hover {
+  color: var(--white);
+}
+
+.video-nav--prev { left: 8px; }
+.video-nav--next { right: 8px; }
+
+.video-nav svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* Watch the Series CTA — outlined, centred, matches reference */
+.tradition__watch {
+  padding: 52px 48px 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.tradition__watch-btn {
+  display: inline-block;
+  border: 2px solid var(--black);
+  padding: 18px 72px;
+  font-family: 'TAY Birdie', serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+  transition: background 0.25s, color 0.25s;
+}
+
+.tradition__watch-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ============================================================
+   PURVEYOR SECTION  (dark full-bleed photo + overlay text)
+   ============================================================ */
+.purveyor {
+  position: relative;
+  min-height: 62vh;
+  overflow: hidden;
+}
+
+.purveyor__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.purveyor__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.56);
+}
+
+.purveyor__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 62vh;
+  text-align: center;
+  padding: 80px 48px;
+}
+
+.purveyor__eyebrow {
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 20px;
+}
+
+.purveyor__heading {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6.5vw, 84px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 26px;
+}
+
+.purveyor__body {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.70);
+  max-width: 460px;
+  margin-bottom: 38px;
+}
+
+.btn-border-white {
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  padding: 14px 36px;
+  font-family: 'TAY Birdie', serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: background 0.25s, border-color 0.25s;
+}
+.btn-border-white:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* ============================================================
+   PARTNERS / NF&P
+   ============================================================ */
+.partners {
+  background: #e8e6e1;
+  padding: 72px 0 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* — NF&P typographic header ——————————————————————————————— */
+.partners__header {
+  padding: 0 64px 52px;
+}
+
+.partners__nfp-mark {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 6vw, 78px);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.partners__nfp-amp {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+}
+
+.partners__nfp-rule {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.22);
+  width: min(320px, 38%);
+  margin: 0 auto 14px;
+}
+
+.partners__nfp-sub {
+  font-family: var(--font-serif);
+  font-size: 9px;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+/* — Logo rows ————————————————————————————————————————————— */
+.partners__logos {
+  padding: 8px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.partners__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* 4-logo row centred */
+.partners__row--4 {
+  justify-content: center;
+  gap: clamp(36px, 5.5vw, 88px);
+}
+
+.partners__logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partners__row--4 .partners__logo {
+  flex: 0 0 auto;
+}
+
+.partners__logo img {
+  max-height: 64px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  transition: opacity 0.25s;
+}
+
+/* tall logos: Noble Smoke, The Jimmy */
+.partners__logo--tall img {
+  max-height: 104px;
+  max-width: 116px;
+}
+
+/* wide/flat logos: Rooster's, Copain, DCC, Field Pea */
+.partners__logo--wide img {
+  max-height: 52px;
+  max-width: 220px;
+}
+
+.partners__logo:hover img {
+  opacity: 1;
+}
+
+/* — Farm scene ———————————————————————————————————————————— */
+.partners__farm {
+  display: block;
+  width: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.80;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   BREADS FILM PANEL  — full-width to 1440px, play button
+   ============================================================ */
+.breads-film {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+}
+
+.breads-film__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+/* Slight darkening so play button reads clearly */
+.breads-film__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 1;
+}
+
+/* Centred play button */
+.breads-film__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.breads-film__play-btn {
+  width: 72px;
+  height: 72px;
+  border: 1.5px solid rgba(255, 255, 255, 0.80);
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  padding: 0;
+}
+
+.breads-film__play-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.08);
+}
+
+.breads-film__play-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: rgba(255, 255, 255, 0.85);
+  margin-left: 4px; /* optical centre for triangle */
+}
+
+/* 80px below film panel = standard section gap */
+.breads-film {
+  margin-bottom: 80px;
+}
+
+/* ============================================================
+   TRADITION BAR  — black CTA band (used on our-breads.html)
+   ============================================================ */
+.tradition__bar {
+  background: var(--black);
+  padding: 22px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tradition__bar-link {
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: var(--track-x);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.2s;
+}
+
+.tradition__bar-link:hover {
+  color: var(--white);
+}
+
+/* ============================================================
+   PURVEYOR PANEL  — framed (our-breads.html section 4)
+   Two images top, grey content area below, all inside black frame
+   ============================================================ */
+
+.purveyor-panel {
+  background: var(--white);
+  padding: 0 52px 80px; /* 80px below frame = standard section gap */
+}
+
+/* Outer black border + white mat — mirrors .breads-hero__frame */
+.purveyor-panel__frame {
+  border: 2px solid var(--black);
+  padding: 12px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* Two-column image row — left is 1/4 the width of right (1fr : 4fr) */
+.purveyor-panel__images {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  position: relative;
+  aspect-ratio: 4 / 1;
+  overflow: hidden;
+}
+
+.purveyor-panel__image-cell {
+  position: relative;
+  overflow: hidden;
+}
+
+.purveyor-panel__image-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark scrim so text reads over both photos */
+.purveyor-panel__images::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Text centered across both images */
+.purveyor-panel__overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.90);
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Grey content area beneath images */
+.purveyor-panel__content {
+  background: #e8e8e8;
+  padding: 72px 80px 68px;
+  text-align: center;
+}
+
+.purveyor-panel__heading {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 5.5vw, 72px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--black);
+  margin-bottom: 32px;
+}
+
+.purveyor-panel__body {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--text);
+  max-width: 460px;
+  margin: 0 auto 48px;
+}
+
+.purveyor-panel__illus {
+  display: block;
+  margin: 0 auto;
+  height: 88px;
+  width: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.65;
+}
+
+@media (max-width: 768px) {
+  .purveyor-panel {
+    padding: 0 20px 40px;
+  }
+  .purveyor-panel__images {
+    grid-template-columns: 1fr;
+    aspect-ratio: auto;
+  }
+  .purveyor-panel__image-cell {
+    aspect-ratio: 4/3;
+  }
+  .purveyor-panel__overlay-text {
+    white-space: normal;
+    text-align: center;
+    width: 80%;
+  }
+  .purveyor-panel__content {
+    padding: 48px 28px 48px;
+  }
+}
+
+/* ============================================================
+   CONTACT FORM SECTION
+   ============================================================ */
+.contact-section {
+  background: var(--white);
+  padding: 96px 48px 88px;
+}
+
+.contact-section__inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section__heading {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+
+.contact-section__sub {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 52px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-align: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--cream-mid);
+  border-right: 1px solid var(--cream-mid);
+  padding: 20px 0 0;
+}
+
+.form-field:last-child,
+.form-field--full {
+  border-right: none;
+}
+
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-family: var(--font-serif);
+  font-size: 9.5px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  padding: 0 24px;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--text);
+  padding: 0 24px 18px;
+  resize: none;
+  width: 100%;
+  appearance: none;
+}
+
+.form-field textarea {
+  min-height: 120px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--border);
+}
+
+.form-submit {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-submit button {
+  border: 1px solid var(--black);
+  background: var(--black);
+  padding: 14px 44px;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+.form-submit button:hover {
+  background: transparent;
+  color: var(--black);
+}
+
+.form-contact-line {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: var(--track);
+}
+
+.form-contact-line a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: border-color 0.2s;
+}
+
+.form-contact-line a:hover {
+  border-color: var(--text);
+}
+
+/* ============================================================
+   FOOTER  (black + bread illustrations)
+   ============================================================ */
+.site-footer {
+  background: var(--black);
+  padding: 48px 48px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 3px,
+    rgba(255, 255, 255, 0.013) 3px,
+    rgba(255, 255, 255, 0.013) 6px
+  );
+  pointer-events: none;
+}
+
+.footer__illus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  position: relative;
+  z-index: 1;
+}
+.footer__illus img {
+  filter: brightness(0) invert(1);
+  opacity: 0.52;
+  display: block;
+}
+
+.footer__copy {
+  font-family: var(--font-serif);
+  font-size: 9.5px;
+  letter-spacing: var(--track-x);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.22);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* ============================================================
+   MENU DRAWER  — slides in from the right
+   ============================================================ */
+
+.menu-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.menu-drawer.is-open {
+  pointer-events: all;
+  visibility: visible;
+}
+
+/* Dark scrim — click it to close */
+.menu-drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  transition: background 0.45s ease;
+  cursor: pointer;
+}
+
+.menu-drawer.is-open .menu-drawer__overlay {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Sliding panel */
+.menu-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 90vw;
+  background: var(--white);
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 56px;
+  z-index: 1;
+  box-shadow: -4px 0 32px rgba(0, 0, 0, 0.10);
+}
+
+.menu-drawer.is-open .menu-drawer__panel {
+  transform: translateX(0);
+}
+
+/* X close button */
+.menu-drawer__close {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-drawer__close-bar {
+  position: absolute;
+  width: 22px;
+  height: 1.5px;
+  background: var(--black);
+  display: block;
+}
+
+.menu-drawer__close-bar:first-child {
+  transform: rotate(45deg);
+}
+
+.menu-drawer__close-bar:last-child {
+  transform: rotate(-45deg);
+}
+
+/* Nav list */
+.menu-drawer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-drawer__item {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.menu-drawer__item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.menu-drawer__link {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.menu-drawer__link:hover {
+  opacity: 0.40;
+  transform: translateX(8px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .breads-film {
+    aspect-ratio: 4 / 3;
+  }
+
+.form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial {
+    padding: 72px 28px 64px;
+  }
+
+  .editorial__illus {
+    width: 100%;
+  }
+
+  .editorial--split .editorial__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial--split .editorial__image {
+    aspect-ratio: 4 / 3;
+    min-height: unset;
+  }
+
+  .editorial--split .editorial__copy {
+    padding: 48px 28px;
+  }
+
+  .tradition {
+    padding: 0 28px 0;
+  }
+
+  .purveyor__content {
+    padding: 60px 28px;
+  }
+
+  .partners {
+    padding: 56px 28px 52px;
+  }
+
+  .partners__logos {
+    padding: 0 20px 40px;
+    gap: 28px;
+  }
+
+  .partners__row,
+  .partners__row--4 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+    justify-content: unset;
+  }
+
+  .partners__logo {
+    min-height: 72px;
+    max-width: none;
+    padding: 6px 10px;
+  }
+
+  .partners__logo img {
+    width: 100%;
+    max-width: 150px;
+    max-height: 44px;
+    margin: 0 auto;
+  }
+
+  .partners__logo--tall img {
+    width: auto;
+    max-width: 84px;
+    max-height: 72px;
+  }
+
+  .partners__logo--wide img {
+    max-width: 100%;
+    max-height: 38px;
+  }
+
+  .partners__farm {
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+    max-width: none;
+  }
+
+  .site-footer {
+    padding: 40px 28px 36px;
+  }
+
+  .footer__illus {
+    gap: 28px;
+  }
+
+  /* ── Modules (Shop Breads / Pastries) ── */
+  .modules {
+    grid-template-columns: 1fr;
+  }
+
+  .module__image {
+    aspect-ratio: 3 / 2;
+  }
+
+  .module__btn {
+    min-width: unset;
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+
+  .module__label {
+    font-size: 20px;
+    white-space: normal;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  /* ── Breads hero ── */
+  .breads-hero {
+    padding: 88px 16px 32px;
+  }
+
+  .breads-hero__tagline {
+    font-size: 13px;
+    white-space: normal;
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  .breads-hero__badge img {
+    width: 72px;
+  }
+
+  /* ── Purveyor panel heading ── */
+  .purveyor-panel__heading {
+    font-size: 28px;
+  }
+
+  /* ── Buttons ── */
+  .btn-border,
+  .btn-border-white {
+    font-size: 18px;
+    padding: 10px 24px;
+  }
+
+  .tradition__watch-btn {
+    font-size: 18px;
+    padding: 10px 28px;
+  }
+
+  /* ── Video carousel ── */
+  .video-track {
+    gap: 0;
+  }
+
+  .video-slide {
+    flex: 0 0 100%;
+  }
+
+  .video-nav--prev { left: 12px; }
+  .video-nav--next { right: 12px; }
+
+  /* ── Breads film ── */
+  .breads-film__play-btn {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners__logos {
+    padding: 0 16px 36px;
+  }
+
+  .partners__row,
+  .partners__row--4 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .partners__logo {
+    min-height: 64px;
+    padding: 4px 12px;
+  }
+
+  .partners__logo img {
+    max-width: min(100%, 220px);
+    max-height: 42px;
+  }
+
+  .partners__logo--tall img {
+    max-width: 88px;
+    max-height: 68px;
+  }
+
+  .partners__logo--wide img {
+    max-height: 36px;
+  }
+}

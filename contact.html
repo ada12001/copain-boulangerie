@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Boulangerie Copain</title>
+  <meta name="description" content="Get in touch with Copain for wholesale enquiries, bespoke baking programmes, or general questions.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="site-nav is-solid" id="site-nav">
+    <button class="nav__burger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a class="nav__wordmark" href="our-story.html" aria-label="Boulangerie Copain">
+      <img src="../Logo.png" alt="Boulangerie Copain">
+    </a>
+
+  </nav>
+
+
+  <!-- ============================================================
+       HERO  — minimal, dark
+  ============================================================ -->
+  <section class="hero" style="height: 56vh; min-height: 400px;">
+    <img
+      class="hero__photo"
+      src="../Mono/Copain_081025_GFX_74 1.jpg"
+      alt="Baker's hand gliding over a long loaf"
+      style="object-position: center 55%;"
+    >
+    <div class="hero__scrim" style="background: linear-gradient(175deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.72) 100%);"></div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT FORM
+  ============================================================ -->
+  <section class="contact-section">
+    <div class="contact-section__inner">
+
+      <h1 class="contact-section__heading">Say Hello</h1>
+      <p class="contact-section__sub">
+        Wholesale enquiries, bespoke programmes, or simply a question
+        about the bread — we read every message.
+      </p>
+
+      <form class="contact-form" action="#" method="POST" novalidate>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="first-name">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              name="first_name"
+              placeholder="Joey"
+              autocomplete="given-name"
+            >
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name</label>
+            <input
+              type="text"
+              id="last-name"
+              name="last_name"
+              placeholder="Martin"
+              autocomplete="family-name"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="joey@example.com"
+              autocomplete="email"
+            >
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="980.366.1200"
+              autocomplete="tel"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field form-field--full">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Wholesale partnership"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field form-field--full" style="border-bottom: none;">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell us a little about what you're looking for…"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit">Send Message</button>
+          <p class="form-contact-line">
+            Or call us at&nbsp;
+            <a href="tel:9803661200">980.366.1200</a>
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PARTNERS  — NF&P
+  ============================================================ -->
+  <section class="partners">
+
+    <div class="partners__header">
+      <h2 class="partners__nfp-mark">NF<span class="partners__nfp-amp">&amp;</span>P</h2>
+      <hr class="partners__nfp-rule">
+      <p class="partners__nfp-sub">Noble Food and Pursuits</p>
+    </div>
+
+    <div class="partners__logos">
+
+      <!-- Row 1 — 5 logos -->
+      <div class="partners__row">
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/Roosters_Logo_Main.png" alt="Rooster's Since 1992">
+        </div>
+        <div class="partners__logo partners__logo--tall">
+          <img src="../nfp%20logos/NFP_Footer_Logo_NobleSmoke.png" alt="Noble Smoke Barbecue">
+        </div>
+        <div class="partners__logo">
+          <img src="../nfp%20logos/NFP_Footer_Logo_Bossy.png" alt="Bossy Beulah's Chicken Shack">
+        </div>
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/Copain_Logo_2025.04.jpg" alt="Copain Bakery &amp; Provisions">
+        </div>
+        <div class="partners__logo partners__logo--tall">
+          <img src="../nfp%20logos/NFP_Footer_Logo_Jimmy.png" alt="The Jimmy Pastaria + Pizzeria">
+        </div>
+      </div>
+
+      <!-- Row 2 — 4 logos -->
+      <div class="partners__row partners__row--4">
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/DCCGrey.png" alt="Dream Center Church — A Restoring Place">
+        </div>
+        <div class="partners__logo">
+          <img src="../nfp%20logos/NFP_Footer_Logo_Miracle.png" alt="Le Premier Miracle">
+        </div>
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/NFP_Footer_Logo_FieldPea.png" alt="Field Pea Catering">
+        </div>
+        <div class="partners__logo">
+          <img src="../nfp%20logos/NFP_Footer_Logo_DreamCenter.png" alt="Dreamcenter Charlotte Mecklenburg">
+        </div>
+      </div>
+
+    </div>
+
+    <img
+      class="partners__farm"
+      src="../FarmScene.png"
+      alt="Noble Food and Pursuits"
+    >
+
+  </section>
+
+
+  <!-- MENU DRAWER -->
+  <div class="menu-drawer" id="menu-drawer" aria-hidden="true">
+    <div class="menu-drawer__overlay" id="menu-overlay"></div>
+    <div class="menu-drawer__panel">
+      <button class="menu-drawer__close" id="menu-close" aria-label="Close menu">
+        <span class="menu-drawer__close-bar"></span>
+        <span class="menu-drawer__close-bar"></span>
+      </button>
+      <ul class="menu-drawer__list">
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-story.html">Our Story</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-breads.html">Our Breads</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

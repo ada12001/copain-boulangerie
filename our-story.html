@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Boulangerie Copain</title>
+  <meta name="description" content="Nearly four decades of artisanal bread-making, rooted in a single enduring starter and old-world French baking tradition.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="site-nav" id="site-nav">
+    <button class="nav__burger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a class="nav__wordmark" href="our-story.html" aria-label="Boulangerie Copain">
+      <img src="../Logo.png" alt="Boulangerie Copain">
+    </a>
+
+  </nav>
+
+
+  <!-- ============================================================
+       HERO  — full-bleed dark photo
+  ============================================================ -->
+  <section class="hero">
+    <img
+      class="hero__photo"
+      src="../Mono/Copain_081025_GFX_112.jpg"
+      alt="Baker arranging proofing baskets"
+    >
+    <div class="hero__scrim"></div>
+  </section>
+
+
+  <!-- ============================================================
+       EDITORIAL  — "Our Story"
+  ============================================================ -->
+  <section class="editorial">
+    <div class="editorial__inner">
+      <h1 class="editorial__heading">Our Story</h1>
+
+      <!-- Bread illustration beneath heading -->
+      <img
+        class="editorial__illus"
+        src="../bread 2.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <p class="editorial__body">
+        Boulangerie Copain began with a single belief: that honest bread,
+        made slowly and with care, changes how people experience a day.
+        Our starter has been alive for nearly four decades — fed every
+        morning, never rushed. The loaves that leave our ovens carry that
+        living history in every crust.
+      </p>
+      <a class="btn-border" href="#tradition">Learn More</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       2-MODULE SECTION  — Breads / Pastries
+  ============================================================ -->
+  <div class="modules">
+
+    <div class="module">
+      <div class="module__image">
+        <img
+          src="../Mono/Copain_081025_GFX_51 1.jpg"
+          alt="Baker scoring baguettes with a lame"
+          style="object-position: center 80%;"
+        >
+        <a class="module__label" href="our-breads.html">Breads</a>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module__image">
+        <img
+          src="../Mono/Copain_081025_GFX_27 1.jpg"
+          alt="Rows of shaped croissants on a baking sheet"
+        >
+        <a class="module__label" href="our-breads.html">Pastries</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================
+       TRADITION  — "La tradition de soi" + video gallery
+  ============================================================ -->
+  <section class="tradition" id="tradition">
+
+    <div class="tradition__ornament">
+      <img src="../braed.png" alt="" aria-hidden="true">
+    </div>
+
+    <h2 class="tradition__heading">La tradition de soi</h2>
+    <p class="tradition__sub">Sustaining tradition</p>
+
+    <!-- Video carousel -->
+    <div class="video-carousel" id="video-carousel">
+
+      <div class="video-track" id="video-track">
+
+        <div class="video-slide">
+          <div class="video-slide__inner">
+            <img src="../Mono/Copain_081025_GFX_52 1.jpg" alt="Baker — Bread Artisans">
+            <div class="video-slide__frame" aria-hidden="true"></div>
+            <p class="video-slide__episode"><strong>Episode 01:</strong> Bread Artisans</p>
+            <div class="video-slide__play">
+              <button class="video-slide__play-btn" aria-label="Play Episode 01">
+                <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,6 0,12"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-slide">
+          <div class="video-slide__inner">
+            <img src="../Mono/Copain_081025_GFX_21 1.jpg" alt="Baker dusting flour — Better Wheat. Better Bread.">
+            <div class="video-slide__frame" aria-hidden="true"></div>
+            <p class="video-slide__episode"><strong>Episode 02:</strong> Better Wheat. Better Bread.</p>
+            <div class="video-slide__play">
+              <button class="video-slide__play-btn" aria-label="Play Episode 02">
+                <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,6 0,12"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-slide">
+          <div class="video-slide__inner">
+            <img src="../Mono/Copain_081025_GFX_83 1.jpg" alt="Baker shaping croissant dough — Made the Old Way">
+            <div class="video-slide__frame" aria-hidden="true"></div>
+            <p class="video-slide__episode"><strong>Episode 03:</strong> Made the Old Way</p>
+            <div class="video-slide__play">
+              <button class="video-slide__play-btn" aria-label="Play Episode 03">
+                <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,6 0,12"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /video-track -->
+
+      <!-- Navigation arrows -->
+      <button class="video-nav video-nav--prev" id="video-prev" aria-label="Previous episode">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="15,18 9,12 15,6"/>
+        </svg>
+      </button>
+      <button class="video-nav video-nav--next" id="video-next" aria-label="Next episode">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="9,6 15,12 9,18"/>
+        </svg>
+      </button>
+
+    </div><!-- /video-carousel -->
+
+    <!-- Watch the Series CTA -->
+    <div class="tradition__watch">
+      <a class="tradition__watch-btn" href="our-breads.html">Watch the Series</a>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       PURVEYOR  — dark photo + text overlay
+  ============================================================ -->
+  <section class="purveyor">
+    <img
+      class="purveyor__photo"
+      src="../Mono/Copain_081025_GFX_21 1.jpg"
+      alt="Baker dusting flour over proofing baskets"
+      style="object-position: center 30%;"
+    >
+    <div class="purveyor__overlay"></div>
+    <div class="purveyor__content">
+      <p class="purveyor__eyebrow">Wholesale &amp; Partnerships</p>
+      <h2 class="purveyor__heading">For Every Purveyor</h2>
+      <p class="purveyor__body">
+        We bake for chefs, hoteliers, and restaurateurs who hold bread
+        to the same standard they hold everything else. If you believe
+        the table begins with the bread, we should talk.
+      </p>
+      <a class="btn-border-white" href="contact.html">Let Us Bake for You</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PARTNERS  — NF&P
+  ============================================================ -->
+  <section class="partners">
+
+    <div class="partners__header">
+      <h2 class="partners__nfp-mark">NF<span class="partners__nfp-amp">&amp;</span>P</h2>
+      <hr class="partners__nfp-rule">
+      <p class="partners__nfp-sub">Noble Food and Pursuits</p>
+    </div>
+
+    <div class="partners__logos">
+
+      <!-- Row 1 — 5 logos -->
+      <div class="partners__row">
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/Roosters_Logo_Main.png" alt="Rooster's Since 1992">
+        </div>
+        <div class="partners__logo partners__logo--tall">
+          <img src="../nfp%20logos/NFP_Footer_Logo_NobleSmoke.png" alt="Noble Smoke Barbecue">
+        </div>
+        <div class="partners__logo">
+          <img src="../nfp%20logos/NFP_Footer_Logo_Bossy.png" alt="Bossy Beulah's Chicken Shack">
+        </div>
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/Copain_Logo_2025.04.jpg" alt="Copain Bakery &amp; Provisions">
+        </div>
+        <div class="partners__logo partners__logo--tall">
+          <img src="../nfp%20logos/NFP_Footer_Logo_Jimmy.png" alt="The Jimmy Pastaria + Pizzeria">
+        </div>
+      </div>
+
+      <!-- Row 2 — 4 logos -->
+      <div class="partners__row partners__row--4">
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/DCCGrey.png" alt="Dream Center Church — A Restoring Place">
+        </div>
+        <div class="partners__logo">
+          <img src="../nfp%20logos/NFP_Footer_Logo_Miracle.png" alt="Le Premier Miracle">
+        </div>
+        <div class="partners__logo partners__logo--wide">
+          <img src="../nfp%20logos/NFP_Footer_Logo_FieldPea.png" alt="Field Pea Catering">
+        </div>
+        <div class="partners__logo">
+          <img src="../nfp%20logos/NFP_Footer_Logo_DreamCenter.png" alt="Dreamcenter Charlotte Mecklenburg">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Farm scene — full-width engraving illustration -->
+    <img
+      class="partners__farm"
+      src="../FarmScene.png"
+      alt="Noble Food and Pursuits"
+    >
+
+  </section>
+
+
+  <!-- MENU DRAWER -->
+  <div class="menu-drawer" id="menu-drawer" aria-hidden="true">
+    <div class="menu-drawer__overlay" id="menu-overlay"></div>
+    <div class="menu-drawer__panel">
+      <button class="menu-drawer__close" id="menu-close" aria-label="Close menu">
+        <span class="menu-drawer__close-bar"></span>
+        <span class="menu-drawer__close-bar"></span>
+      </button>
+      <ul class="menu-drawer__list">
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-story.html">Our Story</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-breads.html">Our Breads</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
