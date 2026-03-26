@@ -20,7 +20,7 @@
     </button>
 
     <a class="nav__wordmark" href="our-story.html" aria-label="Boulangerie Copain">
-      <img src="../Logo.png" alt="Boulangerie Copain">
+      <img src="assets/images/Logo.png" alt="Boulangerie Copain">
     </a>
 
   </nav>
@@ -32,7 +32,7 @@
   <section class="hero" style="height: 56vh; min-height: 400px;">
     <img
       class="hero__photo"
-      src="../Mono/Copain_081025_GFX_74 1.jpg"
+      src="assets/images/mono/Copain_081025_GFX_74 1.jpg"
       alt="Baker's hand gliding over a long loaf"
       style="object-position: center 55%;"
     >
@@ -52,7 +52,9 @@
         about the bread — we read every message.
       </p>
 
-      <form class="contact-form" action="#" method="POST" novalidate>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="5a94ccaa-0498-400c-a4f9-212abccc4bd8">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;">
 
         <div class="form-row">
           <div class="form-field">
@@ -63,6 +65,7 @@
               name="first_name"
               placeholder="Joey"
               autocomplete="given-name"
+              required
             >
           </div>
           <div class="form-field">
@@ -73,6 +76,7 @@
               name="last_name"
               placeholder="Martin"
               autocomplete="family-name"
+              required
             >
           </div>
         </div>
@@ -86,6 +90,7 @@
               name="email"
               placeholder="joey@example.com"
               autocomplete="email"
+              required
             >
           </div>
           <div class="form-field">
@@ -108,6 +113,7 @@
               id="subject"
               name="subject"
               placeholder="Wholesale partnership"
+              required
             >
           </div>
         </div>
@@ -120,12 +126,14 @@
               name="message"
               placeholder="Tell us a little about what you're looking for…"
               rows="5"
+              required
             ></textarea>
           </div>
         </div>
 
         <div class="form-submit">
           <button type="submit">Send Message</button>
+          <p class="form-submit__status" id="form-status" role="status" aria-live="polite"></p>
           <p class="form-contact-line">
             Or call us at&nbsp;
             <a href="tel:9803661200">980.366.1200</a>
@@ -153,35 +161,35 @@
       <!-- Row 1 — 5 logos -->
       <div class="partners__row">
         <div class="partners__logo partners__logo--wide">
-          <img src="../nfp%20logos/Roosters_Logo_Main.png" alt="Rooster's Since 1992">
+          <img src="assets/images/nfp-logos/Roosters_Logo_Main.png" alt="Rooster's Since 1992">
         </div>
         <div class="partners__logo partners__logo--tall">
-          <img src="../nfp%20logos/NFP_Footer_Logo_NobleSmoke.png" alt="Noble Smoke Barbecue">
+          <img src="assets/images/nfp-logos/NFP_Footer_Logo_NobleSmoke.png" alt="Noble Smoke Barbecue">
         </div>
         <div class="partners__logo">
-          <img src="../nfp%20logos/NFP_Footer_Logo_Bossy.png" alt="Bossy Beulah's Chicken Shack">
+          <img src="assets/images/nfp-logos/NFP_Footer_Logo_Bossy.png" alt="Bossy Beulah's Chicken Shack">
         </div>
         <div class="partners__logo partners__logo--wide">
-          <img src="../nfp%20logos/Copain_Logo_2025.04.jpg" alt="Copain Bakery &amp; Provisions">
+          <img src="assets/images/nfp-logos/Copain_Logo_2025.04.jpg" alt="Copain Bakery &amp; Provisions">
         </div>
         <div class="partners__logo partners__logo--tall">
-          <img src="../nfp%20logos/NFP_Footer_Logo_Jimmy.png" alt="The Jimmy Pastaria + Pizzeria">
+          <img src="assets/images/nfp-logos/NFP_Footer_Logo_Jimmy.png" alt="The Jimmy Pastaria + Pizzeria">
         </div>
       </div>
 
       <!-- Row 2 — 4 logos -->
       <div class="partners__row partners__row--4">
         <div class="partners__logo partners__logo--wide">
-          <img src="../nfp%20logos/DCCGrey.png" alt="Dream Center Church — A Restoring Place">
+          <img src="assets/images/nfp-logos/DCCGrey.png" alt="Dream Center Church — A Restoring Place">
         </div>
         <div class="partners__logo">
-          <img src="../nfp%20logos/NFP_Footer_Logo_Miracle.png" alt="Le Premier Miracle">
+          <img src="assets/images/nfp-logos/NFP_Footer_Logo_Miracle.png" alt="Le Premier Miracle">
         </div>
         <div class="partners__logo partners__logo--wide">
-          <img src="../nfp%20logos/NFP_Footer_Logo_FieldPea.png" alt="Field Pea Catering">
+          <img src="assets/images/nfp-logos/NFP_Footer_Logo_FieldPea.png" alt="Field Pea Catering">
         </div>
         <div class="partners__logo">
-          <img src="../nfp%20logos/NFP_Footer_Logo_DreamCenter.png" alt="Dreamcenter Charlotte Mecklenburg">
+          <img src="assets/images/nfp-logos/NFP_Footer_Logo_DreamCenter.png" alt="Dreamcenter Charlotte Mecklenburg">
         </div>
       </div>
 
@@ -189,7 +197,7 @@
 
     <img
       class="partners__farm"
-      src="../FarmScene.png"
+      src="assets/images/FarmScene.png"
       alt="Noble Food and Pursuits"
     >
 

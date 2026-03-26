@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'TAY Birdie';
-  src: url('../../Fonts/TAY Birdie/TAYBirdie.otf') format('opentype');
+  src: url('../assets/fonts/TAYBirdie.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,28 +16,28 @@
 
 @font-face {
   font-family: 'Baskerville';
-  src: url('../../Fonts/Baskerville/Baskerville-01.ttf') format('truetype');
+  src: url('../assets/fonts/Baskerville-01.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Baskerville';
-  src: url('../../Fonts/Baskerville/Baskerville-Italic-03.ttf') format('truetype');
+  src: url('../assets/fonts/Baskerville-Italic-03.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Baskerville';
-  src: url('../../Fonts/Baskerville/Baskerville-SemiBold-05.ttf') format('truetype');
+  src: url('../assets/fonts/Baskerville-SemiBold-05.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Baskerville';
-  src: url('../../Fonts/Baskerville/Baskerville-SemiBoldItalic-06.ttf') format('truetype');
+  src: url('../assets/fonts/Baskerville-SemiBoldItalic-06.ttf') format('truetype');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -1243,6 +1243,22 @@ ul    { list-style: none; }
   gap: 20px;
 }
 
+.form-submit__status {
+  min-height: 1.2em;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: var(--text-mid);
+  text-align: center;
+}
+
+.form-submit__status.is-success {
+  color: #255d39;
+}
+
+.form-submit__status.is-error {
+  color: #9b2c2c;
+}
+
 .form-submit button {
   border: 1px solid var(--black);
   background: var(--black);
@@ -1259,6 +1275,11 @@ ul    { list-style: none; }
 .form-submit button:hover {
   background: transparent;
   color: var(--black);
+}
+
+.form-submit button:disabled {
+  opacity: 0.7;
+  cursor: wait;
 }
 
 .form-contact-line {

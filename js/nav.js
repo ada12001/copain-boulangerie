@@ -171,3 +171,66 @@
     if (e.key === 'Escape') closeMenu();
   });
 }());
+
+/* ── Contact form ─────────────────────────────────────────── */
+(function () {
+  var form = document.querySelector('.contact-form');
+  var status = document.getElementById('form-status');
+  var submit = form ? form.querySelector('button[type="submit"]') : null;
+
+  if (!form || !status || !submit) return;
+
+  function setStatus(message, type) {
+    status.textContent = message;
+    status.className = 'form-submit__status' + (type ? ' is-' + type : '');
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    var formData = new FormData(form);
+    var firstName = (formData.get('first_name') || '').trim();
+    var lastName = (formData.get('last_name') || '').trim();
+    var fullName = [firstName, lastName].filter(Boolean).join(' ');
+
+    submit.disabled = true;
+    setStatus('Sending your message...', '');
+
+    if (fullName) {
+      formData.set('name', fullName);
+    }
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json'
+      }
+    })
+      .then(function (response) {
+        return response.json().then(function (data) {
+          return {
+            ok: response.ok,
+            data: data
+          };
+        });
+      })
+      .then(function (result) {
+        if (result.ok && result.data.success) {
+          form.reset();
+          setStatus('Thanks. Your message has been sent.', 'success');
+          return;
+        }
+
+        setStatus(result.data.message || 'Something went wrong. Please try again.', 'error');
+      })
+      .catch(function () {
+        setStatus('Unable to send right now. Please try again in a moment.', 'error');
+      })
+      .finally(function () {
+        submit.disabled = false;
+      });
+  });
+}());
