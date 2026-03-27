@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://use.typekit.net/hly1zzp.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="story-page">
 
   <!-- ============================================================
        NAVIGATION
@@ -25,7 +25,6 @@
     <a class="nav__wordmark" href="index.html" aria-label="Boulangerie Copain">
       <img src="assets/images/Logo.png" alt="Boulangerie Copain">
     </a>
-
   </nav>
 
 
@@ -35,21 +34,21 @@
   <section class="hero">
     <img
       class="hero__photo"
-      src="assets/images/mono/Copain_081025_GFX_112.jpg"
-      alt="Baker arranging proofing baskets"
+      src="assets/images/68ab14_7a2aa3f107fa42c9b9912f5221271110~mv2.png"
+      alt="Copain monogram on the bakery window with artisan-made lettering"
+      style="object-position: center 52%; filter: grayscale(1) contrast(1.08);"
     >
     <div class="hero__scrim"></div>
   </section>
 
 
   <!-- ============================================================
-       EDITORIAL  — "Our Story"
+       EDITORIAL  — intro
   ============================================================ -->
   <section class="editorial">
     <div class="editorial__inner">
       <h1 class="editorial__heading">Our Story</h1>
 
-      <!-- Bread illustration beneath heading -->
       <img
         class="editorial__illus"
         src="assets/images/bread 2.png"
@@ -64,117 +63,224 @@
         morning, never rushed. The loaves that leave our ovens carry that
         living history in every crust.
       </p>
-      <a class="btn-border" href="#tradition">Learn More</a>
+      <a class="btn-border" href="#origins">Our Origins</a>
     </div>
   </section>
 
 
   <!-- ============================================================
-       2-MODULE SECTION  — Breads / Pastries
+       STORY PILLARS  — three values
+  ============================================================ -->
+  <section class="story-pillars" id="origins">
+
+    <div class="story-pillars__header">
+      <h2 class="story-pillars__heading">What We Believe</h2>
+      <hr class="story-pillars__rule">
+    </div>
+
+    <div class="story-pillars__grid">
+
+      <div class="story-pillar">
+        <span class="story-pillar__number story-pillar__number--alt">I</span>
+        <h3 class="story-pillar__title">The Living Starter</h3>
+        <p class="story-pillar__body">
+          Our sourdough culture has been fed every morning since 1986.
+          It is the backbone of every loaf — the thing that gives Copain
+          bread its character, its open crumb, its depth of flavour.
+        </p>
+      </div>
+
+      <div class="story-pillar">
+        <span class="story-pillar__number story-pillar__number--alt">II</span>
+        <h3 class="story-pillar__title">Old-World Technique</h3>
+        <p class="story-pillar__body">
+          We shape by hand, proof slowly, and score with intention.
+          There is no shortcut through these steps — only the patience
+          to do them properly, every single day.
+        </p>
+      </div>
+
+      <div class="story-pillar">
+        <span class="story-pillar__number story-pillar__number--alt">III</span>
+        <h3 class="story-pillar__title">Local Grain</h3>
+        <p class="story-pillar__body">
+          We source from regional mills who believe, as we do, that
+          where the wheat grows matters as much as how it is baked.
+          Great bread begins long before the oven.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       TIMELINE  — founding milestones
+  ============================================================ -->
+  <section class="story-timeline">
+
+    <div class="story-timeline__header">
+      <img
+        class="story-timeline__ornament"
+        src="assets/images/braed.png"
+        alt=""
+        aria-hidden="true"
+      >
+      <h2 class="story-timeline__heading">From a Single Kitchen</h2>
+      <p class="story-timeline__sub">How we came to be</p>
+    </div>
+
+    <ol class="story-timeline__list">
+
+      <li class="story-timeline__item">
+        <span class="story-timeline__year">1992</span>
+        <div class="story-timeline__content">
+          <h3 class="story-timeline__title">The Table Is Set</h3>
+          <p class="story-timeline__body">
+            Noble Food and Pursuits opens its first restaurant in Charlotte
+            on March 3rd. From the beginning, bread is treated as part of
+            the meal itself, never an afterthought.
+          </p>
+        </div>
+      </li>
+
+      <li class="story-timeline__item story-timeline__item--photo">
+        <span class="story-timeline__year">2020</span>
+        <div class="story-timeline__content">
+          <h3 class="story-timeline__title">Copain Opens in SouthPark</h3>
+          <p class="story-timeline__body">
+            On July 15th, Copain opens its first standalone bakery in SouthPark.
+            The concept had been years in the making; the starter even longer.
+          </p>
+        </div>
+        <div class="story-timeline__image">
+          <img
+            src="assets/images/southpark-entrance.jpg"
+            alt="Copain SouthPark entrance"
+          >
+        </div>
+      </li>
+
+      <li class="story-timeline__item story-timeline__item--photo">
+        <span class="story-timeline__year">2025</span>
+        <div class="story-timeline__content">
+          <h3 class="story-timeline__title">A Second Home in Winston-Salem</h3>
+          <p class="story-timeline__body">
+            Copain arrives in Winston-Salem on February 24th, carrying the same
+            living culture, slow fermentation, and hand-shaped craft to a new city.
+          </p>
+        </div>
+        <div class="story-timeline__image">
+          <img
+            src="assets/images/DSC06936.jpg"
+            alt="Copain Winston-Salem exterior"
+          >
+        </div>
+      </li>
+
+      <li class="story-timeline__item story-timeline__item--photo">
+        <span class="story-timeline__year">2026</span>
+        <div class="story-timeline__content">
+          <h3 class="story-timeline__title">The Third Hearth</h3>
+          <p class="story-timeline__body">
+            A third home opens in January, followed by another later in the year.
+            The table grows, but the bread is still made the same old way.
+          </p>
+        </div>
+        <div class="story-timeline__image">
+          <img
+            src="assets/images/ballantyne-facade.jpg"
+            alt="Copain Ballantyne facade with striped awnings"
+          >
+        </div>
+      </li>
+
+    </ol>
+
+  </section>
+
+
+  <!-- ============================================================
+       PULL QUOTE
+  ============================================================ -->
+  <section class="story-quote">
+    <div class="story-quote__inner">
+      <span class="story-quote__mark">&ldquo;</span>
+      <blockquote class="story-quote__text">
+        The bread must be made the same way it always has been —
+        with time, with flour, with living culture.
+        Nothing else can replace any of those things.
+      </blockquote>
+      <p class="story-quote__attribution">Jim Noble &mdash; Founder, Noble Food and Pursuits</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       2-MODULE PHOTO BREAK
   ============================================================ -->
   <div class="modules">
 
     <div class="module">
       <div class="module__image">
         <img
-          src="assets/images/mono/Copain_081025_GFX_51 1.jpg"
-          alt="Baker scoring baguettes with a lame"
-          style="object-position: center 80%;"
+          src="assets/images/copain/baguettes-basket.jpg"
+          alt="Fresh baguettes in a wicker basket"
+          style="filter: grayscale(1) contrast(1.1); object-position: center 60%;"
         >
-        <a class="module__label" href="our-breads.html">Breads</a>
+        <span class="module__label">Our Breads</span>
       </div>
     </div>
 
     <div class="module">
       <div class="module__image">
         <img
-          src="assets/images/mono/Copain_081025_GFX_27 1.jpg"
-          alt="Rows of shaped croissants on a baking sheet"
+          src="assets/images/millefeuille.jpg"
+          alt="Mille-feuille pastry with chocolate leaf"
+          style="filter: grayscale(1) contrast(1.1); object-position: center 60%;"
         >
-        <a class="module__label" href="our-breads.html">Pastries</a>
+        <span class="module__label">Our Pastries</span>
       </div>
     </div>
 
   </div>
 
-
   <!-- ============================================================
-       TRADITION  — "La tradition de soi" + video gallery
+       SPLIT EDITORIAL  — image left, copy right
   ============================================================ -->
-  <section class="tradition" id="tradition">
+  <section class="editorial editorial--split">
+    <div class="editorial__inner">
 
-    <div class="tradition__ornament">
-      <img src="assets/images/braed.png" alt="" aria-hidden="true">
+      <div class="editorial__image">
+        <img
+          src="assets/images/copain/sourdough-close.jpg"
+          alt="Sourdough crust close-up"
+          style="filter: grayscale(1) contrast(1.1); object-position: center 50%;"
+        >
+      </div>
+
+      <div class="editorial__copy">
+        <h2 class="editorial__heading" style="font-size: clamp(44px, 5vw, 72px); margin-bottom: 24px;">
+          Made the Old Way
+        </h2>
+        <p class="editorial__body">
+          Every loaf at Copain is shaped by hand. We don't rush the proof.
+          We don't cut corners on the score. The techniques we use today
+          are the same ones bakers in France relied on long before
+          industrial ovens existed — because they still produce the
+          finest crust and crumb available.
+        </p>
+        <p class="editorial__body">
+          Our bakers apprentice for years before they work the line alone.
+          That accumulated knowledge — the feel of properly developed dough,
+          the sound of a well-baked loaf — cannot be automated.
+          It lives in the hands.
+        </p>
+        <a class="btn-border" href="our-breads.html">See Our Breads</a>
+      </div>
+
     </div>
-
-    <h2 class="tradition__heading">La tradition de soi</h2>
-    <p class="tradition__sub">Sustaining tradition</p>
-
-    <!-- Video carousel -->
-    <div class="video-carousel" id="video-carousel">
-
-      <div class="video-track" id="video-track">
-
-        <div class="video-slide">
-          <div class="video-slide__inner">
-            <img src="assets/images/mono/Copain_081025_GFX_52 1.jpg" alt="Baker — Bread Artisans">
-            <div class="video-slide__frame" aria-hidden="true"></div>
-            <p class="video-slide__episode"><strong>Episode 01:</strong> Bread Artisans</p>
-            <div class="video-slide__play">
-              <button class="video-slide__play-btn" aria-label="Play Episode 01">
-                <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,6 0,12"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="video-slide">
-          <div class="video-slide__inner">
-            <img src="assets/images/mono/Copain_081025_GFX_21 1.jpg" alt="Baker dusting flour — Better Wheat. Better Bread.">
-            <div class="video-slide__frame" aria-hidden="true"></div>
-            <p class="video-slide__episode"><strong>Episode 02:</strong> Better Wheat. Better Bread.</p>
-            <div class="video-slide__play">
-              <button class="video-slide__play-btn" aria-label="Play Episode 02">
-                <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,6 0,12"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="video-slide">
-          <div class="video-slide__inner">
-            <img src="assets/images/mono/Copain_081025_GFX_83 1.jpg" alt="Baker shaping croissant dough — Made the Old Way">
-            <div class="video-slide__frame" aria-hidden="true"></div>
-            <p class="video-slide__episode"><strong>Episode 03:</strong> Made the Old Way</p>
-            <div class="video-slide__play">
-              <button class="video-slide__play-btn" aria-label="Play Episode 03">
-                <svg viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,6 0,12"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /video-track -->
-
-      <!-- Navigation arrows -->
-      <button class="video-nav video-nav--prev" id="video-prev" aria-label="Previous episode">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="15,18 9,12 15,6"/>
-        </svg>
-      </button>
-      <button class="video-nav video-nav--next" id="video-next" aria-label="Next episode">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="9,6 15,12 9,18"/>
-        </svg>
-      </button>
-
-    </div><!-- /video-carousel -->
-
-    <!-- Watch the Series CTA -->
-    <div class="tradition__watch">
-      <a class="tradition__watch-btn" href="our-breads.html">Watch the Series</a>
-    </div>
-
   </section>
 
 
@@ -184,9 +290,9 @@
   <section class="purveyor">
     <img
       class="purveyor__photo"
-      src="assets/images/mono/Copain_081025_GFX_21 1.jpg"
-      alt="Baker dusting flour over proofing baskets"
-      style="object-position: center 30%;"
+      src="assets/images/croissants-wrapped.png"
+      alt="Wrapped croissants arranged for service"
+      style="object-position: center 58%; filter: grayscale(1) contrast(1.05);"
     >
     <div class="purveyor__overlay"></div>
     <div class="purveyor__content">

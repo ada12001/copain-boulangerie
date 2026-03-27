@@ -186,12 +186,14 @@ ul    { list-style: none; }
    NAVIGATION
    ============================================================ */
 .site-nav {
+  --nav-pad-y: 20px;
   position: fixed;
   inset: 0 0 auto;
   z-index: 200;
   display: flex;
   align-items: center;
-  padding: 20px 28px;
+  min-height: 100px;
+  padding: var(--nav-pad-y) 28px;
   transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -251,12 +253,21 @@ ul    { list-style: none; }
 /* Centred wordmark */
 .nav__wordmark {
   position: absolute;
+  top: var(--nav-pad-y);
+  bottom: var(--nav-pad-y);
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: min(72vw, 420px);
 }
 .nav__wordmark img {
-  height: 44px;
+  display: block;
+  height: 100%;
   width: auto;
+  max-height: 100%;
+  max-width: 100%;
   filter: brightness(0) invert(1);
   transition: filter 0.4s;
 }
@@ -313,6 +324,177 @@ ul    { list-style: none; }
   );
 }
 
+/* ============================================================
+   OUR BREADS — INTRO
+   ============================================================ */
+.breads-intro {
+  background: var(--white);
+  padding: 96px 48px 88px;
+}
+
+.breads-intro__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.breads-intro__eyebrow {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+
+.breads-intro__heading {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.02;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+
+.breads-intro__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  gap: 18px;
+}
+
+.breads-intro__ornament::before,
+.breads-intro__ornament::after {
+  content: "";
+  width: clamp(72px, 12vw, 116px);
+  height: 1px;
+  background: var(--border);
+}
+
+.breads-intro__diamond {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+
+.breads-intro__body {
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text-mid);
+}
+
+.bread-showcase {
+  background: var(--white);
+  padding: 0 48px 96px;
+  display: grid;
+  gap: 24px;
+}
+
+.bread-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  border: 1px solid var(--border);
+  background: var(--white);
+  overflow: hidden;
+}
+
+.bread-feature__media {
+  min-height: 520px;
+}
+
+.bread-feature__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.bread-feature__content {
+  background: var(--cream);
+  padding: 60px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.bread-feature__number {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 18px;
+}
+
+.bread-feature__title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 0.96;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.bread-feature__subtitle {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 24px;
+}
+
+.bread-feature__body {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.88;
+  color: var(--text-mid);
+  max-width: 29rem;
+}
+
+.bread-feature__cta {
+  margin-top: 34px;
+}
+
+@media (max-width: 768px) {
+  .breads-intro {
+    padding: 64px 28px 64px;
+  }
+
+  .breads-intro__heading {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .bread-showcase {
+    padding: 0 28px 72px;
+    gap: 20px;
+  }
+
+  .bread-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .bread-feature__media {
+    min-height: 320px;
+  }
+
+  .bread-feature__content {
+    padding: 40px 28px 42px;
+  }
+
+  .bread-feature__title {
+    font-size: clamp(38px, 12vw, 52px);
+  }
+}
+
 /* Circular monogram badge (Our Breads) */
 .hero__badge {
   position: absolute;
@@ -340,7 +522,7 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
-   BREADS PAGE — FRAMED INTRO HERO  (our-breads.html only)
+   BREADS PAGE — FRAMED INTRO HERO  (homev2.html only)
    ============================================================ */
 
 /* Full-viewport section — padding clears the fixed nav (~92px) + breathing room */
@@ -421,7 +603,7 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
-   EDITORIAL SECTION  — single column (our-story.html)
+   EDITORIAL SECTION  — single column (home.html)
    ============================================================ */
 .editorial {
   background: var(--white);
@@ -435,7 +617,7 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
-   EDITORIAL — two-column split modifier (our-breads.html only)
+   EDITORIAL — two-column split modifier (homev2.html only)
    Image fills left column, grey copy fills right column
    ============================================================ */
 .editorial--split {
@@ -591,7 +773,7 @@ ul    { list-style: none; }
   margin-bottom: 80px;
 }
 
-/* Rectangular outlined CTA button — used on our-breads.html shop modules */
+/* Rectangular outlined CTA button — used on homev2.html shop modules */
 .module__btn {
   position: absolute;
   top: 50%;
@@ -1006,6 +1188,11 @@ ul    { list-style: none; }
   max-width: 220px;
 }
 
+.partners__logo img[src$="DCCGrey.png"] {
+  max-height: 104px;
+  max-width: 440px;
+}
+
 .partners__logo:hover img {
   opacity: 1;
 }
@@ -1088,7 +1275,7 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
-   TRADITION BAR  — black CTA band (used on our-breads.html)
+   TRADITION BAR  — black CTA band (used on homev2.html)
    ============================================================ */
 .tradition__bar {
   background: var(--black);
@@ -1112,7 +1299,7 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
-   PURVEYOR PANEL  — framed (our-breads.html section 4)
+   PURVEYOR PANEL  — framed (homev2.html section 4)
    Two images top, grey content area below, all inside black frame
    ============================================================ */
 
@@ -1228,6 +1415,290 @@ ul    { list-style: none; }
   }
   .purveyor-panel__content {
     padding: 48px 28px 48px;
+  }
+}
+
+/* ============================================================
+   OUR STORY — PULL QUOTE
+   ============================================================ */
+.story-quote {
+  background: var(--cream);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.story-page .editorial__illus,
+.story-page .story-timeline__ornament,
+.story-page .partners__logo img,
+.story-page .partners__farm {
+  filter: grayscale(1);
+}
+
+.story-quote__inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.story-quote__mark {
+  font-family: var(--font-display);
+  font-size: 96px;
+  line-height: 0.6;
+  color: rgba(0, 0, 0, 0.12);
+  display: block;
+  margin-bottom: 24px;
+}
+
+.story-quote__text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.story-quote__attribution {
+  font-family: var(--font-serif);
+  font-size: 10px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* ============================================================
+   OUR STORY — TIMELINE
+   ============================================================ */
+.story-timeline {
+  background: var(--white);
+  padding: 88px 48px 96px;
+}
+
+.story-timeline__header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.story-timeline__ornament {
+  display: block;
+  height: 68px;
+  width: auto;
+  margin: 0 auto 28px;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+.story-timeline__heading {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.5vw, 76px);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 0.95;
+  margin-bottom: 16px;
+}
+
+.story-timeline__sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: var(--track);
+  color: var(--text-light);
+}
+
+.story-timeline__list {
+  list-style: none;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.story-timeline__item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0 48px;
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+
+.story-timeline__item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.story-timeline__year {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.5vw, 46px);
+  color: var(--black);
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.story-timeline__title {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.story-timeline__body {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.72;
+  color: var(--text-mid);
+  max-width: 34rem;
+}
+
+/* Timeline item with an inline location photo */
+.story-timeline__item--photo {
+  grid-template-columns: 120px 1fr 240px;
+  gap: 0 48px;
+  align-items: center;
+}
+
+.story-timeline__image {
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+}
+
+.story-timeline__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.08);
+}
+
+/* ============================================================
+   OUR STORY — PILLARS
+   ============================================================ */
+.story-pillars {
+  background: var(--cream);
+  padding: 88px 48px 96px;
+}
+
+.story-pillars__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.story-pillars__heading {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 400;
+  color: var(--black);
+  line-height: 0.95;
+  margin-bottom: 28px;
+}
+
+.story-pillars__rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  width: min(240px, 30%);
+  margin: 0 auto;
+}
+
+.story-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.story-pillar {
+  padding: 0 52px;
+  border-left: 1px solid var(--border);
+  text-align: center;
+}
+
+.story-pillar:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.story-pillar:last-child {
+  padding-right: 0;
+}
+
+.story-pillar__number {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.14);
+  display: block;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.story-pillar__number--alt {
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-size: 44px;
+  letter-spacing: 0.04em;
+}
+
+.story-pillar__title {
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.story-pillar__body {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-mid);
+}
+
+@media (max-width: 768px) {
+  .story-quote {
+    padding: 64px 28px;
+  }
+
+  .story-timeline {
+    padding: 64px 28px 72px;
+  }
+
+  .story-timeline__item {
+    grid-template-columns: 80px 1fr;
+    gap: 0 24px;
+    padding: 32px 0;
+  }
+
+  .story-timeline__item--photo {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .story-timeline__image {
+    display: none;
+  }
+
+  .story-pillars {
+    padding: 64px 28px 72px;
+  }
+
+  .story-pillars__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .story-pillar {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 48px 0 0;
+    text-align: left;
+  }
+
+  .story-pillar:first-child {
+    border-top: none;
+    padding-top: 0;
   }
 }
 
@@ -1677,6 +2148,11 @@ ul    { list-style: none; }
   .partners__logo--wide img {
     max-width: 100%;
     max-height: 38px;
+  }
+
+  .partners__logo img[src$="DCCGrey.png"] {
+    max-height: 76px;
+    max-width: 100%;
   }
 
   .partners__farm {
