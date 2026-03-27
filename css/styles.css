@@ -441,7 +441,7 @@ ul    { list-style: none; }
    Image fills left column, grey copy fills right column
    ============================================================ */
 .editorial--split {
-  padding: 0 0 80px; /* 80px below = standard section gap */
+  padding: 0 48px 80px; /* 80px below = standard section gap */
   text-align: left;
 }
 
@@ -1025,12 +1025,14 @@ ul    { list-style: none; }
    BREADS FILM PANEL  — full-width to 1440px, play button
    ============================================================ */
 .breads-film {
-  width: 100%;
+  width: auto;
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   display: block;
   cursor: pointer;
+  margin: 0 48px 80px;
+  background: var(--white);
 }
 
 .breads-film__photo {
@@ -1085,11 +1087,6 @@ ul    { list-style: none; }
   height: 22px;
   fill: rgba(255, 255, 255, 0.85);
   margin-left: 4px; /* optical centre for triangle */
-}
-
-/* 80px below film panel = standard section gap */
-.breads-film {
-  margin-bottom: 80px;
 }
 
 /* ============================================================
@@ -1602,6 +1599,7 @@ ul    { list-style: none; }
   }
 
   .breads-film {
+    margin: 0 28px 80px;
     aspect-ratio: 4 / 3;
   }
 
@@ -1619,6 +1617,10 @@ ul    { list-style: none; }
 
   .editorial--split .editorial__inner {
     grid-template-columns: 1fr;
+  }
+
+  .editorial--split {
+    padding: 0 28px 80px;
   }
 
   .editorial--split .editorial__image {
