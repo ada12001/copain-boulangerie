@@ -790,6 +790,10 @@ ul    { list-style: none; }
   align-items: flex-start; /* prevents buttons from stretching full-width */
 }
 
+.editorial--split .editorial__copy-inner {
+  width: min(100%, 640px);
+}
+
 .editorial__heading {
   font-family: var(--font-display);
   font-size: clamp(60px, 7.5vw, 100px);
@@ -871,6 +875,7 @@ ul    { list-style: none; }
 }
 
 .module__image {
+  display: block;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   position: relative;
@@ -2291,6 +2296,10 @@ ul    { list-style: none; }
 
   .editorial--split .editorial__copy {
     padding: 48px 28px;
+  }
+
+  .editorial--split .editorial__copy-inner {
+    width: 100%;
   }
 
   .tradition {
