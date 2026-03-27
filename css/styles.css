@@ -1005,6 +1005,7 @@ ul    { list-style: none; }
   font-style: italic;
   font-size: 18px;
   letter-spacing: var(--track);
+  text-transform: uppercase;
   color: var(--text-light);
   margin-bottom: 56px;
 }
