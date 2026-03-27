@@ -1081,7 +1081,7 @@ ul    { list-style: none; }
   left: 26px;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 12px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.80);
   z-index: 4;
   pointer-events: none;
