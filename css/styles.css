@@ -84,9 +84,105 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.coming-page {
+  min-height: 100vh;
+  background: var(--black);
+}
+
 img   { display: block; }
 a     { text-decoration: none; color: inherit; }
 ul    { list-style: none; }
+
+/* ============================================================
+   COMING SOON LANDING PAGE
+   ============================================================ */
+.coming-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.coming-hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 24%;
+}
+
+.coming-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.74) 0%, rgba(0, 0, 0, 0.28) 36%, rgba(0, 0, 0, 0.82) 100%),
+    radial-gradient(circle at center 58%, rgba(255, 255, 255, 0.08), transparent 32%);
+}
+
+.coming-hero__content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+  padding: 68px 28px 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.coming-hero__wordmark {
+  width: min(210px, 58vw);
+  height: auto;
+  filter: brightness(0) invert(1);
+  margin-bottom: clamp(42px, 8vh, 84px);
+}
+
+.coming-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 10vw, 100px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.coming-hero__mark {
+  width: clamp(62px, 11vw, 88px);
+  height: auto;
+  margin-top: clamp(28px, 4.5vh, 42px);
+}
+
+.coming-hero__cta {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(44px, 8vh, 70px);
+  transform: translateX(-50%);
+  z-index: 1;
+  min-width: min(320px, calc(100vw - 56px));
+  padding: 16px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.02);
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.coming-hero__cta:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.95);
+  color: var(--white);
+}
 
 /* ============================================================
    NAVIGATION
@@ -1354,7 +1450,7 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
-   MENU DRAWER  — slides in from the right
+   MENU DRAWER  — slides in from the left
    ============================================================ */
 
 .menu-drawer {
@@ -1387,19 +1483,19 @@ ul    { list-style: none; }
 .menu-drawer__panel {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   width: 380px;
   max-width: 90vw;
   background: var(--white);
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 80px 56px;
   z-index: 1;
-  box-shadow: -4px 0 32px rgba(0, 0, 0, 0.10);
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.10);
 }
 
 .menu-drawer.is-open .menu-drawer__panel {
@@ -1410,7 +1506,7 @@ ul    { list-style: none; }
 .menu-drawer__close {
   position: absolute;
   top: 28px;
-  right: 32px;
+  left: 32px;
   width: 40px;
   height: 40px;
   background: transparent;
@@ -1475,6 +1571,35 @@ ul    { list-style: none; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
+  .coming-hero__photo {
+    object-position: center 30%;
+  }
+
+  .coming-hero__content {
+    padding: 56px 24px 176px;
+  }
+
+  .coming-hero__wordmark {
+    width: min(176px, 56vw);
+    margin-bottom: 52px;
+  }
+
+  .coming-hero__title {
+    font-size: clamp(46px, 15vw, 82px);
+  }
+
+  .coming-hero__mark {
+    width: 70px;
+    margin-top: 26px;
+  }
+
+  .coming-hero__cta {
+    min-width: calc(100vw - 64px);
+    bottom: 38px;
+    padding: 15px 22px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
 
   .breads-film {
     aspect-ratio: 4 / 3;
@@ -1643,6 +1768,32 @@ ul    { list-style: none; }
 }
 
 @media (max-width: 480px) {
+  .coming-hero__photo {
+    object-position: center 34%;
+  }
+
+  .coming-hero__content {
+    padding: 48px 20px 164px;
+  }
+
+  .coming-hero__wordmark {
+    width: 156px;
+    margin-bottom: 44px;
+  }
+
+  .coming-hero__title {
+    font-size: clamp(42px, 14vw, 64px);
+  }
+
+  .coming-hero__mark {
+    width: 64px;
+  }
+
+  .coming-hero__cta {
+    min-width: calc(100vw - 48px);
+    bottom: 30px;
+  }
+
   .partners__logos {
     padding: 0 16px 36px;
   }
