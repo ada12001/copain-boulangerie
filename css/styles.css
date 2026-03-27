@@ -4,8 +4,6 @@
    ============================================================ */
 
 /* — Fonts ——————————————————————————————————————————————————— */
-@import url("https://use.typekit.net/hly1zzp.css");
-
 @font-face {
   font-family: 'TAY Birdie';
   src: url('../assets/fonts/TAYBirdie.otf') format('opentype');
