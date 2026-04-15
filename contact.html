@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://use.typekit.net/hly1zzp.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="contact-page">
 
   <!-- ============================================================
        NAVIGATION
@@ -42,9 +42,9 @@
   <section class="hero" style="height: 56vh; min-height: 400px;">
     <img
       class="hero__photo"
-      src="assets/images/copain/c0562b_c92b96585bfb43a8969f9f843545af57~mv2.jpg"
+      src="assets/images/mono/Copain_081025_GFX_4-1.jpg"
       alt="Bakery scene with artisan loaves and hands at work"
-      style="object-position: center 48%; filter: grayscale(1) contrast(1.08);"
+      style="object-position: center 80%; filter: grayscale(1) contrast(1.08);"
     >
     <div class="hero__scrim" style="background: linear-gradient(175deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.72) 100%);"></div>
   </section>
@@ -56,10 +56,12 @@
   <section class="contact-section">
     <div class="contact-section__inner">
 
-      <h1 class="contact-section__heading">Partner With Copain</h1>
-      <p class="contact-section__sub">
-        Wholesale enquiries, bespoke programmes, or simply a question
-        about the bread — we read every message.
+      <h1>Partagez le pain avec nous</h1>
+      <h6>Break Bread With Us</h6>
+      <img class="svg-divider" src="assets/Boulangerie_Web_Dividers-02.svg" alt="" aria-hidden="true">
+      <p>
+        Have a wholesale inquiry, need a bespoke baked goods program, or are you
+        simply curious about our bread? We read every message.
       </p>
 
       <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
@@ -68,25 +70,24 @@
 
         <div class="form-row">
           <div class="form-field">
-            <label for="first-name">First Name</label>
+            <label for="name">Name</label>
             <input
               type="text"
-              id="first-name"
-              name="first_name"
-              placeholder="Joey"
-              autocomplete="given-name"
+              id="name"
+              name="name"
+              placeholder="Jennifer Parker"
+              autocomplete="name"
               required
             >
           </div>
           <div class="form-field">
-            <label for="last-name">Last Name</label>
+            <label for="company">Company</label>
             <input
               type="text"
-              id="last-name"
-              name="last_name"
-              placeholder="Martin"
-              autocomplete="family-name"
-              required
+              id="company"
+              name="company"
+              placeholder="Hill Valley Deli"
+              autocomplete="organization"
             >
           </div>
         </div>
@@ -98,7 +99,7 @@
               type="email"
               id="email"
               name="email"
-              placeholder="joey@example.com"
+              placeholder="jennifer@valleyani.com"
               autocomplete="email"
               required
             >
@@ -109,7 +110,7 @@
               type="tel"
               id="phone"
               name="phone"
-              placeholder="980.366.1200"
+              placeholder="980.555.4825"
               autocomplete="tel"
             >
           </div>
@@ -122,7 +123,7 @@
               type="text"
               id="subject"
               name="subject"
-              placeholder="Wholesale partnership"
+              placeholder="Wholesale partnerships"
               required
             >
           </div>
@@ -156,14 +157,58 @@
 
 
   <!-- ============================================================
+       CONTACT STORY  — dark photo + text overlay
+  ============================================================ -->
+  <section class="contact-story">
+    <img
+      class="contact-story__photo"
+      src="assets/images/mono/Copain_081025_GFX_58 1.jpg"
+      alt="Baker dusting flour over proofing baskets"
+    >
+    <div class="contact-story__overlay"></div>
+    <div class="contact-story__content">
+      <h2>Laissez-nous vous aider à raconter votre histoire.</h2>
+      <h6>Let Us Help Tell Your Story</h6>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PROCESS STRIP
+  ============================================================ -->
+  <section class="bread-process-strip" aria-label="Bakery process gallery">
+    <div class="bread-process-strip__cell">
+      <img
+        src="assets/images/mono/Copain_081025_GFX_25 1.jpg"
+        alt="Large hearth loaves baking in a deck oven"
+      >
+    </div>
+    <div class="bread-process-strip__cell">
+      <img
+        src="assets/images/mono/Copain_081025_GFX_27 1.jpg"
+        alt="Rows of shaped croissants on a baking sheet"
+      >
+    </div>
+    <div class="bread-process-strip__cell">
+      <img
+        src="assets/images/mono/Copain_081025_GFX_83 1.jpg"
+        alt="Baker shaping dough by hand"
+      >
+    </div>
+  </section>
+
+
+  <!-- ============================================================
        PARTNERS  — NF&P
   ============================================================ -->
   <section class="partners">
 
     <div class="partners__header">
-      <h2 class="partners__nfp-mark">NF<span class="partners__nfp-amp">&amp;</span>P</h2>
-      <hr class="partners__nfp-rule">
-      <p class="partners__nfp-sub">Noble Food and Pursuits</p>
+      <img
+        class="partners__brand"
+        src="assets/images/nfp-logos/NFP_horizontal_with_tag.png"
+        alt="Noble Food and Pursuits"
+      >
     </div>
 
     <div class="partners__logos">
@@ -224,7 +269,7 @@
       </button>
       <ul class="menu-drawer__list">
         <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-story.html">Our Story</a></li>
-        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-breads.html">Our Breads</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-products.html">Our Products</a></li>
         <li class="menu-drawer__item"><a class="menu-drawer__link" href="contact.html">Contact</a></li>
       </ul>
     </div>

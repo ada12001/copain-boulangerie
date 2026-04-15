@@ -3,6 +3,8 @@
    Faithful to: our-story.png + our-breads.jpg reference
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
 /* — Fonts ——————————————————————————————————————————————————— */
 @font-face {
   font-family: 'TAY Birdie';
@@ -43,17 +45,19 @@
 
 /* — Variables ——————————————————————————————————————————————— */
 :root {
-  --black:       #0c0c0c;
+  --black:       #000000;
   --white:       #ffffff;
-  --cream:       #f3efe6;
-  --cream-mid:   #e8e3d8;
-  --text:        #1c1c1c;
-  --text-mid:    #505050;
+  --cream:       #ECEBE6;
+  --cream-mid:   #E0DFD9;
+  --text:        #000000;
+  --text-mid:    #7E7E7E;
   --text-light:  #999;
   --border:      #d4cec4;
+  --content-width: 540px;
 
   --font-display: 'altesse-std-64pt', 'altesse-std-24pt', 'TAY Birdie', Georgia, serif;
   --font-serif:   'Baskerville', Georgia, 'Times New Roman', serif;
+  --font-garamond: 'EB Garamond', Georgia, serif;
 
   --track:       0.10em;
   --track-wide:  0.20em;
@@ -90,6 +94,11 @@ body {
 img   { display: block; }
 a     { text-decoration: none; color: inherit; }
 ul    { list-style: none; }
+
+.measure {
+  width: min(100%, var(--content-width));
+  margin-inline: auto;
+}
 
 /* ============================================================
    COMING SOON LANDING PAGE
@@ -398,18 +407,22 @@ ul    { list-style: none; }
 .bread-feature {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  align-items: stretch;
   border: 1px solid var(--border);
   background: var(--white);
   overflow: hidden;
 }
 
 .bread-feature__media {
-  height: 520px;
-  min-height: 520px;
+  height: auto;
+  min-height: 100%;
   position: relative;
+  align-self: stretch;
 }
 
 .bread-feature__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -475,12 +488,42 @@ ul    { list-style: none; }
   margin-top: 34px;
 }
 
+.product-commitment {
+  background: var(--white);
+  padding: 96px 48px 104px;
+}
+
+.product-commitment__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-commitment__stamp {
+  display: block;
+  width: min(220px, 46vw);
+  height: auto;
+  margin: 0 auto 40px;
+  opacity: 0.78;
+}
+
+.product-commitment__inner > blockquote {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 40px;
+}
+
+.product-commitment__inner > p {
+  max-width: 620px;
+  margin-inline: auto;
+}
+
 .bread-process-strip {
   background: var(--white);
-  padding: 0 48px 96px;
+  padding: 0 0 96px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3px;
+  gap: 0;
 }
 
 .bread-process-strip__cell {
@@ -495,6 +538,10 @@ ul    { list-style: none; }
   object-position: center;
   display: block;
   filter: grayscale(1) contrast(1.08);
+}
+
+.contact-page .bread-process-strip {
+  padding-bottom: 0;
 }
 
 .bread-commitment {
@@ -541,7 +588,7 @@ ul    { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   gap: 18px;
 }
 
@@ -600,8 +647,16 @@ ul    { list-style: none; }
     font-size: clamp(38px, 12vw, 52px);
   }
 
+  .product-commitment {
+    padding: 72px 28px 80px;
+  }
+
+  .product-commitment__stamp {
+    width: min(180px, 56vw);
+  }
+
   .bread-process-strip {
-    padding: 0 28px 72px;
+    padding: 0 0 72px;
     grid-template-columns: 1fr;
   }
 
@@ -732,7 +787,7 @@ ul    { list-style: none; }
 }
 
 .editorial__inner {
-  max-width: 540px;
+  width: min(100%, var(--content-width));
   margin: 0 auto;
 }
 
@@ -746,19 +801,21 @@ ul    { list-style: none; }
 }
 
 .editorial--split .editorial__inner {
+  width: 100%;
   max-width: none;   /* override base .editorial__inner max-width: 540px */
   margin: 0;         /* override base margin: 0 auto */
   display: grid;
   grid-template-columns: 40% 1fr;
   gap: 0;
   align-items: stretch;
+  min-height: 80vh;
 }
 
 /* Left: image covers the full column height */
 .editorial--split .editorial__image {
   overflow: hidden;
   aspect-ratio: auto;
-  min-height: 480px;
+  min-height: 80vh;
   position: relative;
 }
 
@@ -788,6 +845,7 @@ ul    { list-style: none; }
   flex-direction: column;
   justify-content: center;
   align-items: flex-start; /* prevents buttons from stretching full-width */
+  min-height: 80vh;
 }
 
 .editorial--split .editorial__copy-inner {
@@ -800,7 +858,19 @@ ul    { list-style: none; }
   font-weight: 400;
   line-height: 0.92;
   color: var(--black);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+.editorial__eyebrow {
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-mid);
+  margin-bottom: 20px;
 }
 
 /* Bread illustration above the heading */
@@ -817,7 +887,7 @@ ul    { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   gap: 18px;
 }
 
@@ -836,21 +906,36 @@ ul    { list-style: none; }
   transform: rotate(45deg);
 }
 
+/* ── SVG ornamental divider ──────────────────────────────────────── */
+.svg-divider {
+  display: block;
+  width: clamp(220px, 55vw, 391px);
+  height: auto;
+  margin: 0 auto 30px;
+}
+
+/* White version for dark/photo-overlay sections */
+.svg-divider--white {
+  filter: brightness(0) invert(1);
+}
+
 .editorial__body {
   font-family: var(--font-serif);
   font-size: 16px;
-  line-height: 1.88;
+  line-height: 75px;
   color: var(--text-mid);
   margin-bottom: 40px;
 }
 
 .btn-border {
   display: inline-block;
-  border: 2px solid var(--black);
+  border: 1px solid var(--black);
   padding: 14px 36px;
-  font-family: 'TAY Birdie', serif;
-  font-size: 24px;
-  letter-spacing: 0.04em;
+  font-family: var(--font-garamond);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 50px;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--black);
   transition: background 0.25s, color 0.25s;
@@ -924,27 +1009,30 @@ ul    { list-style: none; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 14px 30px;
   white-space: nowrap;
-  font-family: var(--font-serif);
-  font-size: 22px;
-  letter-spacing: var(--track-x);
+  font-family: var(--font-garamond);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--white);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-  text-decoration: underline;
-  text-underline-offset: 7px;
-  text-decoration-color: rgba(255,255,255,0.55);
-  transition: text-decoration-color 0.2s;
-  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(0, 0, 0, 0.12);
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  z-index: 3;
 }
 
-.module__label:hover {
-  text-decoration-color: var(--white);
-}
-
-/* Bottom spacing for modules when preceding a footer/partners block */
-.modules {
-  margin-bottom: 80px;
+.module:hover .module__label {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 1);
 }
 
 /* Rectangular outlined CTA button — used on homev2.html shop modules */
@@ -981,7 +1069,7 @@ ul    { list-style: none; }
 .tradition {
   background: var(--white);
   text-align: center;
-  padding: 0 48px 0;
+  padding: 96px 48px 88px;
 }
 
 .tradition__ornament {
@@ -1007,12 +1095,14 @@ ul    { list-style: none; }
 }
 
 .tradition__sub {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 18px;
-  letter-spacing: var(--track);
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--text-light);
+  text-align: center;
+  color: var(--text-mid);
   margin-bottom: 56px;
 }
 
@@ -1077,11 +1167,14 @@ ul    { list-style: none; }
 /* Episode label — top-left inside the frame */
 .video-slide__episode {
   position: absolute;
-  top: 26px;
-  left: 26px;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 18px;
+  font-size: 30px;
+  line-height: 1em;
+  text-align: center;
   color: rgba(255, 255, 255, 0.80);
   z-index: 4;
   pointer-events: none;
@@ -1162,7 +1255,7 @@ ul    { list-style: none; }
 
 /* Watch the Series CTA — outlined, centred, matches reference */
 .tradition__watch {
-  padding: 52px 48px 60px;
+  padding: 80px 48px 40px;
   display: flex;
   justify-content: center;
 }
@@ -1215,7 +1308,7 @@ ul    { list-style: none; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 62vh;
+  min-height: 80vh;
   text-align: center;
   padding: 80px 48px;
 }
@@ -1235,25 +1328,39 @@ ul    { list-style: none; }
   font-weight: 400;
   color: var(--white);
   line-height: 1;
-  margin-bottom: 26px;
+  margin-bottom: 14px;
+}
+
+.purveyor__sub {
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.70);
+  margin-bottom: 24px;
 }
 
 .purveyor__body {
   font-family: var(--font-serif);
   font-size: 16px;
   line-height: 1.85;
-  color: rgba(255, 255, 255, 0.70);
+  color: var(--white);
   max-width: 460px;
   margin-bottom: 38px;
 }
 
 .btn-border-white {
   display: inline-block;
-  border: 2px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   padding: 14px 36px;
-  font-family: 'TAY Birdie', serif;
-  font-size: 24px;
-  letter-spacing: 0.04em;
+  font-family: var(--font-garamond);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 50px;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--white);
   transition: background 0.25s, border-color 0.25s;
@@ -1261,6 +1368,61 @@ ul    { list-style: none; }
 .btn-border-white:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 1);
+}
+
+/* ============================================================
+   CONTACT STORY  (dark photo + overlay — contact page mid-section)
+   ============================================================ */
+.contact-story {
+  position: relative;
+  min-height: 50vh;
+  overflow: hidden;
+}
+
+.contact-story__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.contact-story__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.contact-story__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 72px 48px;
+}
+
+.contact-story__heading {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 62px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  max-width: 700px;
+}
+
+.contact-story__sub {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: var(--track-x);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* ============================================================
@@ -1277,6 +1439,13 @@ ul    { list-style: none; }
 /* — NF&P typographic header ——————————————————————————————— */
 .partners__header {
   padding: 0 64px 52px;
+}
+
+.partners__brand {
+  display: block;
+  width: min(315px, 60vw);
+  height: auto;
+  margin: 0 auto;
 }
 
 .partners__nfp-mark {
@@ -1599,8 +1768,7 @@ ul    { list-style: none; }
    OUR STORY — PULL QUOTE
    ============================================================ */
 .story-quote {
-  background: var(--cream);
-  border: 1px solid var(--border);
+  background: var(--white);
   padding: 88px 48px 92px;
 }
 
@@ -1635,7 +1803,7 @@ ul    { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
   gap: 18px;
 }
 
@@ -1891,7 +2059,11 @@ ul    { list-style: none; }
     border-left: none;
     border-top: 1px solid var(--border);
     padding: 48px 0 0;
-    text-align: left;
+    text-align: center;
+  }
+
+  .story-pillar > p {
+    margin-inline: auto;
   }
 
   .story-pillar:first-child {
@@ -1924,6 +2096,15 @@ ul    { list-style: none; }
 }
 
 .contact-section__sub {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: var(--track-x);
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 24px;
+}
+
+.contact-section__body {
   font-family: var(--font-serif);
   font-size: 16px;
   line-height: 1.8;
@@ -1966,7 +2147,7 @@ ul    { list-style: none; }
   font-size: 12px;
   letter-spacing: var(--track-wide);
   text-transform: uppercase;
-  color: var(--text-mid);
+  color: var(--black);
   margin-bottom: 8px;
   padding: 0 24px;
 }
@@ -2232,9 +2413,340 @@ ul    { list-style: none; }
 }
 
 /* ============================================================
+   TYPOGRAPHY SYSTEM  — consolidated rules (override per-component)
+   ============================================================ */
+
+h1,
+.coming-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 0.92;
+  color: var(--black);
+  margin: 0 0 40px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.5vw, 76px);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--black);
+  margin: 0 0 40px;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 0.98;
+  color: var(--black);
+  margin: 0 0 40px;
+}
+
+h4 {
+  font-family: var(--font-garamond);
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: 0.5em;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0 0 40px;
+}
+
+h5 {
+  font-family: var(--font-garamond);
+  font-size: 30px;
+  line-height: 60px;
+  letter-spacing: 0;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0 0 40px;
+}
+
+h6 {
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  font-style: normal;
+  margin: 0 0 40px;
+}
+
+p {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 2.5;
+  color: var(--black);
+  margin-bottom: 40px;
+}
+
+/* Paragraph color system:
+   light surfaces = black, dark/photo surfaces = white */
+p.form-submit__status,
+p.form-contact-line {
+  color: var(--black);
+}
+
+.coming-hero p,
+.hero p,
+.breads-hero p,
+.video-slide p,
+.purveyor p,
+.contact-story p,
+.purveyor-panel__images p {
+  color: var(--white);
+}
+
+blockquote {
+  font-family: var(--font-display);
+  font-size: 50px;
+  font-style: italic;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--black);
+}
+
+/* ── Semantic typography in section context ───────────────── */
+.editorial__copy-inner > h2 {
+  margin-bottom: 40px;
+}
+
+.purveyor__content > h2,
+.contact-story__content > h2 {
+  color: var(--white);
+}
+
+.contact-story__content > h6,
+.purveyor__content > h6 {
+  color: var(--white);
+}
+
+.purveyor__content > h6,
+.purveyor__content > p {
+  color: var(--white);
+}
+
+.story-timeline__content > h3,
+.story-pillar > h3 {
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 40px;
+}
+
+.editorial__copy-inner > p {
+  margin-bottom: 24px;
+}
+
+.editorial__copy-inner > p:last-of-type {
+  margin-bottom: 40px;
+}
+
+.spacer,
+.spacer-40 {
+  height: 40px;
+}
+
+.spacer-80 {
+  height: 80px;
+}
+
+.bread-feature__content > p,
+.bread-commitment__inner > p:last-of-type,
+.contact-section__inner > p,
+.story-timeline__content > p,
+.story-pillar > p,
+.purveyor-panel__content > p {
+  margin: 0;
+}
+
+.bread-feature__content > p {
+  margin-bottom: 40px;
+}
+
+.contact-section__inner > p {
+  margin-bottom: 52px;
+}
+
+.story-timeline__content > p,
+.story-pillar > p {
+  max-width: 34rem;
+}
+
+.story-quote__inner > blockquote {
+  margin: 0 0 24px;
+}
+
+.story-quote__inner > p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.purveyor__content > p {
+  color: var(--white);
+  max-width: 460px;
+  margin-bottom: 38px;
+}
+
+.purveyor-panel__content > p {
+  max-width: 460px;
+  margin: 0 auto 48px;
+}
+
+/* ── Buttons — 3 variants ─────────────────────────────────── */
+
+/* Light border */
+.btn-border,
+.tradition__watch-btn {
+  display: inline-block;
+  border: 1px solid var(--black);
+  padding: 14px 36px;
+  font-family: var(--font-garamond);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: transparent;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-border:hover,
+.tradition__watch-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Dark border (on photo/dark sections) */
+.btn-border-white {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  padding: 14px 36px;
+  font-family: var(--font-garamond);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: transparent;
+  transition: background 0.25s, border-color 0.25s;
+}
+.btn-border-white:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Solid dark */
+.btn-solid,
+.form-submit button {
+  display: inline-block;
+  border: 1px solid var(--black);
+  padding: 14px 36px;
+  font-family: var(--font-garamond);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.btn-solid:hover,
+.form-submit button:hover {
+  background: transparent;
+  color: var(--black);
+}
+.form-submit button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
+  h1,
+  .coming-hero__title,
+  .editorial__heading,
+  .tradition__heading,
+  .purveyor__heading,
+  .story-timeline__heading,
+  .story-pillars__heading,
+  .contact-section__heading {
+    font-size: 50px;
+  }
+
+  h2,
+  .breads-intro__heading,
+  .bread-feature__title,
+  .contact-story__heading,
+  .purveyor-panel__heading {
+    font-size: 40px;
+    line-height: 1.02;
+  }
+
+  h3 {
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.05;
+  }
+
+  h4 {
+    font-size: clamp(18px, 5vw, 24px);
+    line-height: 1.25;
+    letter-spacing: 0.24em;
+  }
+
+  h5 {
+    font-size: clamp(20px, 6vw, 26px);
+    line-height: 1.35;
+  }
+
+  h6,
+  .breads-intro__eyebrow,
+  .bread-commitment__eyebrow,
+  .purveyor__eyebrow,
+  .contact-story__sub,
+  .story-timeline__sub,
+  .contact-section__sub {
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.24em;
+  }
+
+  .editorial__eyebrow,
+  .tradition__sub,
+  .purveyor__sub {
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.3;
+    letter-spacing: 0.28em;
+  }
+
+  blockquote {
+    font-size: 34px;
+  }
+
+  .spacer,
+  .spacer-40,
+  .spacer-80 {
+    display: none;
+  }
+
   .coming-hero__photo {
     object-position: center 30%;
   }
@@ -2306,7 +2818,7 @@ ul    { list-style: none; }
   }
 
   .tradition {
-    padding: 0 28px 0;
+    padding: 72px 28px 64px;
   }
 
   .purveyor__content {
@@ -2315,6 +2827,16 @@ ul    { list-style: none; }
 
   .partners {
     padding: 56px 28px 52px;
+  }
+
+  .partners__header {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 40px;
+  }
+
+  .partners__brand {
+    width: min(268px, 100%);
   }
 
   .partners__logos {
@@ -2354,6 +2876,14 @@ ul    { list-style: none; }
     max-height: 38px;
   }
 
+  .partners__logo img[src$="Roosters_Logo_Main.png"] {
+    max-height: 29px;
+  }
+
+  .partners__logo img[src$="NFP_Footer_Logo_FieldPea.png"] {
+    max-height: 34px;
+  }
+
   .partners__logo img[src$="DCCGrey.png"] {
     max-height: 76px;
     max-width: 100%;
@@ -2379,7 +2909,7 @@ ul    { list-style: none; }
   }
 
   .module__image {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1 / 1;
   }
 
   .module__btn {
@@ -2389,8 +2919,9 @@ ul    { list-style: none; }
   }
 
   .module__label {
-    font-size: 20px;
-    white-space: normal;
+    min-width: min(78vw, 240px);
+    font-size: 14px;
+    white-space: nowrap;
     text-align: center;
     padding: 12px 20px;
   }
@@ -2413,19 +2944,27 @@ ul    { list-style: none; }
 
   /* ── Purveyor panel heading ── */
   .purveyor-panel__heading {
-    font-size: 28px;
+    font-size: clamp(30px, 8vw, 42px);
   }
 
   /* ── Buttons ── */
   .btn-border,
-  .btn-border-white {
-    font-size: 18px;
-    padding: 10px 24px;
+  .btn-border-white,
+  .btn-solid,
+  .tradition__watch-btn {
+    font-size: 14px;
+    padding: 12px 24px;
   }
 
-  .tradition__watch-btn {
-    font-size: 18px;
-    padding: 10px 28px;
+  .btn-border,
+  .btn-border-white,
+  .btn-solid,
+  .tradition__watch-btn,
+  .coming-hero__cta,
+  .module__btn,
+  .module__label,
+  .form-submit button {
+    text-align: center;
   }
 
   /* ── Video carousel ── */
@@ -2435,6 +2974,10 @@ ul    { list-style: none; }
 
   .video-slide {
     flex: 0 0 100%;
+  }
+
+  .video-slide__episode {
+    font-size: 20px;
   }
 
   .video-nav--prev { left: 12px; }
@@ -2501,5 +3044,13 @@ ul    { list-style: none; }
 
   .partners__logo--wide img {
     max-height: 36px;
+  }
+
+  .partners__logo img[src$="Roosters_Logo_Main.png"] {
+    max-height: 27px;
+  }
+
+  .partners__logo img[src$="NFP_Footer_Logo_FieldPea.png"] {
+    max-height: 32px;
   }
 }

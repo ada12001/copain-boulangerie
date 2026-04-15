@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Boulangerie Copain</title>
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/hly1zzp.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .ds-page {
+      background: var(--white);
+      color: var(--text);
+      padding-bottom: 120px;
+    }
+
+    .ds-hero {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 88px 32px 76px;
+    }
+
+    .ds-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .ds-shell {
+      width: min(100%, 1440px);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .ds-section {
+      padding: 64px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ds-section:last-child {
+      border-bottom: none;
+    }
+
+    .ds-section--cream {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      margin-top: 40px;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+
+    .ds-section__eyebrow {
+      margin-bottom: 12px;
+      color: var(--text-mid);
+    }
+
+    .ds-section__intro {
+      max-width: 760px;
+      margin-bottom: 40px;
+      color: var(--text-mid);
+    }
+
+    .ds-swatches {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .ds-swatch {
+      min-width: 0;
+    }
+
+    .ds-swatch__chip {
+      aspect-ratio: 1 / 1;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .ds-swatch code,
+    .ds-type-meta code,
+    .ds-rule code {
+      font-family: "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    .ds-type-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .ds-type-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 32px;
+      align-items: start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ds-type-row > * {
+      margin: 0;
+    }
+
+    .ds-type-meta {
+      color: var(--text-mid);
+    }
+
+    .ds-type-meta strong {
+      display: block;
+      font-size: 12px;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+
+    .ds-type-meta span {
+      display: block;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .ds-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 7vw, 96px);
+      line-height: 0.92;
+      font-weight: 400;
+      color: var(--black);
+    }
+
+    .ds-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 5.5vw, 76px);
+      line-height: 0.95;
+      font-weight: 400;
+      color: var(--black);
+    }
+
+    .ds-h3 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 0.98;
+      font-weight: 400;
+      color: var(--black);
+    }
+
+    .ds-h4 {
+      font-family: var(--font-garamond);
+      font-size: 40px;
+      line-height: 50px;
+      letter-spacing: 0.5em;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .ds-h5 {
+      font-family: var(--font-garamond);
+      font-size: 30px;
+      line-height: 60px;
+      letter-spacing: 0;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .ds-h6 {
+      font-family: var(--font-garamond);
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-mid);
+    }
+
+    .ds-p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 2.5;
+      color: var(--text-mid);
+      max-width: 52rem;
+    }
+
+    .ds-blockquote {
+      font-family: var(--font-display);
+      font-size: 50px;
+      font-style: italic;
+      line-height: 1.3;
+      font-weight: 400;
+      color: var(--black);
+      max-width: 900px;
+    }
+
+    .ds-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .ds-button-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ds-button-card--dark {
+      background: var(--black);
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ds-button-card p,
+    .ds-button-card code {
+      margin: 0;
+    }
+
+    .ds-dividers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .ds-divider-card {
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 28px;
+    }
+
+    .ds-divider-card--dark {
+      background: var(--black);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .ds-divider-stage {
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      margin-bottom: 18px;
+    }
+
+    .ds-divider-card--dark .ds-divider-stage {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .ds-divider-card code {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .ds-divider-card p {
+      margin: 0;
+      color: var(--text-mid);
+    }
+
+    .ds-divider-card--dark code,
+    .ds-divider-card--dark p {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .ds-rules {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .ds-rule {
+      border: 1px solid var(--border);
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .ds-rule h5 {
+      margin: 0 0 10px;
+    }
+
+    .ds-rule p {
+      margin: 0;
+      color: var(--text-mid);
+    }
+
+    @media (max-width: 900px) {
+      .ds-shell {
+        padding: 0 28px;
+      }
+
+      .ds-section--cream {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .ds-swatches {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ds-type-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .ds-rules {
+        grid-template-columns: 1fr;
+      }
+
+      .ds-dividers {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="ds-page">
+  <nav class="site-nav is-solid" id="site-nav">
+    <button class="nav__burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a class="nav__wordmark" href="home.html" aria-label="Boulangerie Copain">
+      <img src="assets/images/Logo.png" alt="Boulangerie Copain">
+    </a>
+  </nav>
+
+  <header class="ds-hero">
+    <div class="ds-shell">
+      <h6 class="ds-h6" style="color: rgba(255,255,255,0.5); margin-bottom: 18px;">Internal Reference</h6>
+      <h1 class="ds-h1" style="color: var(--white); margin-bottom: 18px;">Design System</h1>
+      <p class="ds-p" style="color: rgba(255,255,255,0.68); max-width: 760px;">
+        A streamlined foundation for Boulangerie Copain: three core colors, one semantic type scale,
+        and three button treatments. Keep the system simple and reusable.
+      </p>
+    </div>
+  </header>
+
+  <main class="ds-shell">
+    <section class="ds-section">
+      <h6 class="ds-h6 ds-section__eyebrow">01 Color</h6>
+      <p class="ds-section__intro ds-p">
+        Core colors are limited to black, white, and cream. Text colors are reduced to three roles:
+        default text, text mid, and text light.
+      </p>
+
+      <div class="ds-swatches">
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip" style="background: #000000;"></div>
+          <h5 class="ds-h5">Black</h5>
+          <code>--black · #000000</code>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip" style="background: #ffffff;"></div>
+          <h5 class="ds-h5">White</h5>
+          <code>--white · #ffffff</code>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip" style="background: #ECEBE6;"></div>
+          <h5 class="ds-h5">Cream</h5>
+          <code>--cream · #ECEBE6</code>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip" style="background: #7E7E7E;"></div>
+          <h5 class="ds-h5">Text Mid</h5>
+          <code>--text-mid · #7E7E7E</code>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch__chip" style="background: #999999;"></div>
+          <h5 class="ds-h5">Text Light</h5>
+          <code>--text-light · #999999</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section ds-section--cream">
+      <h6 class="ds-h6 ds-section__eyebrow">02 Typography</h6>
+      <p class="ds-section__intro ds-p">
+        Use semantic tags only: <code>H1</code> through <code>H6</code>, <code>P</code>, and
+        <code>blockquote</code>. Avoid component-specific text styles unless color or layout truly
+        requires an exception.
+      </p>
+
+      <div class="ds-type-list">
+        <div class="ds-type-row">
+          <h1 class="ds-h1">H1 Page Heading</h1>
+          <div class="ds-type-meta">
+            <strong><code>H1</code></strong>
+            <span>Display heading for page-level titles.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <h2 class="ds-h2">H2 Section Heading</h2>
+          <div class="ds-type-meta">
+            <strong><code>H2</code></strong>
+            <span>Primary section heading.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <h3 class="ds-h3">H3 Feature Heading</h3>
+          <div class="ds-type-meta">
+            <strong><code>H3</code></strong>
+            <span>Feature title or large card heading.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <h4 class="ds-h4">H4 SECTION TITLE</h4>
+          <div class="ds-type-meta">
+            <strong><code>H4</code></strong>
+            <span>Spaced Garamond semibold heading for centered section titles.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <h5 class="ds-h5">H5 Editorial Subheading</h5>
+          <div class="ds-type-meta">
+            <strong><code>H5</code></strong>
+            <span>Centered Garamond semibold heading for editorial bridge text.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <h6 class="ds-h6">H6 Eyebrow / Utility Label</h6>
+          <div class="ds-type-meta">
+            <strong><code>H6</code></strong>
+            <span>Eyebrow, subtitle, overline, and utility label.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <p class="ds-p">
+            Paragraph text should stay restrained and consistent. This is the default body style for intros,
+            supporting copy, and long-form content across the site.
+          </p>
+          <div class="ds-type-meta">
+            <strong><code>P</code></strong>
+            <span>Default body copy. Use for all standard paragraphs.</span>
+          </div>
+        </div>
+
+        <div class="ds-type-row">
+          <blockquote class="ds-blockquote">
+            “Bread that anyone can eat, everyone wants to share, and is available to all who wish to enjoy it.”
+          </blockquote>
+          <div class="ds-type-meta">
+            <strong><code>blockquote</code></strong>
+            <span>Editorial quote treatment for key brand statements.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section">
+      <h6 class="ds-h6 ds-section__eyebrow">03 Buttons</h6>
+      <p class="ds-section__intro ds-p">
+        Limit buttons to three variants only: bordered on light, bordered on dark, and solid dark.
+        Reuse these across the site rather than creating page-specific CTA styles.
+      </p>
+
+      <div class="ds-buttons">
+        <div class="ds-button-card">
+          <a class="btn-border" href="#">Learn More</a>
+          <code>.btn-border</code>
+        </div>
+
+        <div class="ds-button-card ds-button-card--dark">
+          <a class="btn-border-white" href="#">Wholesale Inquiry</a>
+          <code style="color: rgba(255,255,255,0.55);">.btn-border-white</code>
+        </div>
+
+        <div class="ds-button-card">
+          <button class="btn-solid" type="button">Send Message</button>
+          <code>.btn-solid</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section">
+      <h6 class="ds-h6 ds-section__eyebrow">04 Dividers</h6>
+      <p class="ds-section__intro ds-p">
+        Limit ornamental dividers to the two approved SVG options below. Use the standard dark version on light surfaces
+        and the white version on dark or image-overlay sections.
+      </p>
+
+      <div class="ds-dividers">
+        <div class="ds-divider-card">
+          <div class="ds-divider-stage">
+            <img class="svg-divider" src="assets/Boulangerie_Web_Dividers-02.svg" alt="Divider option one">
+          </div>
+          <code>assets/Boulangerie_Web_Dividers-02.svg</code>
+          <p>Primary ornament for light sections and standard editorial content.</p>
+        </div>
+
+        <div class="ds-divider-card ds-divider-card--dark">
+          <div class="ds-divider-stage">
+            <img class="svg-divider svg-divider--white" src="assets/Boulangerie_Web_Dividers-03.svg" alt="Divider option two">
+          </div>
+          <code>assets/Boulangerie_Web_Dividers-03.svg</code>
+          <p>White reversal for dark backgrounds, photography overlays, and high-contrast sections.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section">
+      <h6 class="ds-h6 ds-section__eyebrow">05 Rules</h6>
+      <p class="ds-section__intro ds-p">
+        Keep the system disciplined. The goal is fewer exceptions, not more.
+      </p>
+
+      <div class="ds-rules">
+        <div class="ds-rule">
+          <h5 class="ds-h5">Use Semantic Type</h5>
+          <p class="ds-p">
+            Prefer <code>H1</code> through <code>H6</code>, <code>P</code>, and
+            <code>blockquote</code> over one-off text classes.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Use H6 for Eyebrows</h5>
+          <p class="ds-p">
+            Eyebrows, subtitles, and overlines should all collapse into one uppercase utility style.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Keep Copy in One Body Style</h5>
+          <p class="ds-p">
+            Most supporting copy should use the same paragraph size, color, and line-height.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Reuse the Three Buttons</h5>
+          <p class="ds-p">
+            If a CTA does not fit one of the three approved button styles, the button should be reconsidered.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Use Literal Spacers</h5>
+          <p class="ds-p">
+            When extra vertical space is requested, use a literal spacer element rather than increasing adjacent margins.
+            Use <code>&lt;div class="spacer" aria-hidden="true"&gt;&lt;/div&gt;</code> or <code>&lt;div class="spacer-40" aria-hidden="true"&gt;&lt;/div&gt;</code> for <code>40px</code>,
+            and <code>&lt;div class="spacer-80" aria-hidden="true"&gt;&lt;/div&gt;</code> for <code>80px</code>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="menu-drawer" id="menu-drawer" aria-hidden="true">
+    <div class="menu-drawer__overlay" id="menu-overlay"></div>
+    <div class="menu-drawer__panel">
+      <button class="menu-drawer__close" id="menu-close" aria-label="Close menu">
+        <span class="menu-drawer__close-bar"></span>
+        <span class="menu-drawer__close-bar"></span>
+      </button>
+      <ul class="menu-drawer__list">
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-story.html">Our Story</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-breads.html">Our Breads</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

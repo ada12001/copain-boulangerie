@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://use.typekit.net/hly1zzp.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="home-page">
 
   <!-- ============================================================
        NAVIGATION
@@ -54,28 +54,22 @@
   ============================================================ -->
   <section class="editorial">
     <div class="editorial__inner">
-      <!-- Bread illustration above heading -->
-      <img
-        class="editorial__illus"
-        src="assets/images/bread 2.png"
-        alt=""
-        aria-hidden="true"
-      >
+      <h1>Notre Historie</h1>
+      <h6>Our Story</h6>
 
-      <h1 class="editorial__heading">Our Story</h1>
+      <img class="svg-divider" src="assets/Boulangerie_Web_Dividers-02.svg" alt="" aria-hidden="true">
 
-      <div class="editorial__divider" aria-hidden="true">
-        <span class="editorial__diamond"></span>
-      </div>
-
-      <p class="editorial__body">
-        Boulangerie Copain began with a single belief: that honest bread,
-        made slowly and with care, changes how people experience a day.
-        Our starter has been alive for nearly four decades — fed every
-        morning, never rushed. The loaves that leave our ovens carry that
-        living history in every crust.
+      <p>
+        The story of our bread begins with the decades-old sourdough starter that
+        breathes life into every loaf we bake. Then, just down the road at Lindley
+        Mills in Graham, North Carolina, wheat is harvested and milled to our exact
+        specifications, with 90% of it being super-sprout™. Not only does this mean
+        every Copain loaf has a deeper, smoother, more "round" taste, but it's also
+        more nutritious, easier to digest, and bakes to the unmistakable golden brown
+        we have come to know and love in the old world breads of France.
       </p>
-      <a class="btn-border" href="#tradition">Learn More</a>
+      <div class="spacer" aria-hidden="true"></div>
+      <a class="btn-border" href="our-story.html">Learn More</a>
     </div>
   </section>
 
@@ -86,18 +80,18 @@
   <div class="modules">
 
     <div class="module">
-      <a class="module__image" href="our-breads.html">
+      <a class="module__image" href="our-products.html">
         <img
-          src="assets/images/mono/Copain_081025_GFX_51 1.jpg"
+          src="assets/images/mono/Copain_081025_GFX_4-1.jpg"
           alt="Baker scoring baguettes with a lame"
           style="object-position: center 80%;"
         >
-        <span class="module__label">Breads</span>
+        <span class="module__label">Products</span>
       </a>
     </div>
 
     <div class="module">
-      <a class="module__image" href="our-breads.html">
+      <a class="module__image" href="our-products.html">
         <img
           src="assets/images/mono/Copain_081025_GFX_27 1.jpg"
           alt="Rows of shaped croissants on a baking sheet"
@@ -114,12 +108,9 @@
   ============================================================ -->
   <section class="tradition" id="tradition">
 
-    <div class="tradition__ornament">
-      <img src="assets/images/braed.png" alt="" aria-hidden="true">
-    </div>
-
-    <h2 class="tradition__heading">La tradition de soi</h2>
-    <p class="tradition__sub">Sustaining tradition</p>
+    <h2>La tradition du cor</h2>
+    <h6>Honoring Tradition</h6>
+    <div class="spacer-80" aria-hidden="true"></div>
 
     <!-- Video carousel -->
     <div class="video-carousel" id="video-carousel">
@@ -183,7 +174,7 @@
 
     <!-- Watch the Series CTA -->
     <div class="tradition__watch">
-      <a class="tradition__watch-btn" href="our-breads.html">Watch the Series</a>
+      <a class="tradition__watch-btn" href="our-products.html">Watch the Series</a>
     </div>
 
   </section>
@@ -195,20 +186,21 @@
   <section class="purveyor">
     <img
       class="purveyor__photo"
-      src="assets/images/mono/Copain_081025_GFX_21 1.jpg"
-      alt="Baker dusting flour over proofing baskets"
-      style="object-position: center 30%;"
+      src="assets/images/Copain_flour.jpg"
+      alt="Baker dusting flour through the air"
+      style="object-position: center 40%;"
     >
     <div class="purveyor__overlay"></div>
     <div class="purveyor__content">
-      <p class="purveyor__eyebrow">Wholesale &amp; Partnerships</p>
-      <h2 class="purveyor__heading">For Every Purveyor</h2>
-      <p class="purveyor__body">
-        We bake for chefs, hoteliers, and restaurateurs who hold bread
-        to the same standard they hold everything else. If you believe
-        the table begins with the bread, we should talk.
+      <h2>Pour Chaque Fournisseur</h2>
+      <h6>For Every Purveyor</h6>
+      <img class="svg-divider svg-divider--white" src="assets/Boulangerie_Web_Dividers-03.svg" alt="" aria-hidden="true">
+      <p>
+        Nearly forty years ago, we embarked upon an artisanal endeavor to create
+        our own unique versions of the foundational French fare and share it with
+        our friends, family, and food community.
       </p>
-      <a class="btn-border-white" href="contact.html">Let Us Bake for You</a>
+      <a class="btn-border-white" href="contact.html">Order Now</a>
     </div>
   </section>
 
@@ -219,9 +211,11 @@
   <section class="partners">
 
     <div class="partners__header">
-      <h2 class="partners__nfp-mark">NF<span class="partners__nfp-amp">&amp;</span>P</h2>
-      <hr class="partners__nfp-rule">
-      <p class="partners__nfp-sub">Noble Food and Pursuits</p>
+      <img
+        class="partners__brand"
+        src="assets/images/nfp-logos/NFP_horizontal_with_tag.png"
+        alt="Noble Food and Pursuits"
+      >
     </div>
 
     <div class="partners__logos">
@@ -283,7 +277,7 @@
       </button>
       <ul class="menu-drawer__list">
         <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-story.html">Our Story</a></li>
-        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-breads.html">Our Breads</a></li>
+        <li class="menu-drawer__item"><a class="menu-drawer__link" href="our-products.html">Our Products</a></li>
         <li class="menu-drawer__item"><a class="menu-drawer__link" href="contact.html">Contact</a></li>
       </ul>
     </div>
