@@ -518,6 +518,10 @@ ul    { list-style: none; }
   margin-inline: auto;
 }
 
+.product-commitment__inner > h5 {
+  color: var(--text-mid);
+}
+
 .bread-process-strip {
   background: var(--white);
   padding: 0 0 96px;
@@ -1429,7 +1433,7 @@ ul    { list-style: none; }
    PARTNERS / NF&P
    ============================================================ */
 .partners {
-  background: #e8e6e1;
+  background: var(--white);
   border: 1px solid var(--border);
   padding: 72px 0 0;
   text-align: center;
@@ -1446,6 +1450,7 @@ ul    { list-style: none; }
   width: min(315px, 60vw);
   height: auto;
   margin: 0 auto;
+  filter: brightness(0) saturate(100%);
 }
 
 .partners__nfp-mark {
@@ -1516,6 +1521,7 @@ ul    { list-style: none; }
   max-width: 180px;
   object-fit: contain;
   display: block;
+  filter: brightness(0) saturate(100%);
   mix-blend-mode: multiply;
   opacity: 0.85;
   transition: opacity 0.25s;
@@ -1774,9 +1780,20 @@ ul    { list-style: none; }
 
 .story-page .editorial__illus,
 .story-page .story-timeline__ornament,
-.story-page .partners__logo img,
 .story-page .partners__farm {
   filter: grayscale(1);
+}
+
+.story-page .partners__brand,
+.story-page .partners__logo img {
+  filter: brightness(0) saturate(100%);
+}
+
+.partners__logo img[src$="Copain_Logo_2025.04.jpg"],
+.story-page .partners__logo img[src$="Copain_Logo_2025.04.jpg"] {
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
 }
 
 .story-quote__inner {
@@ -2224,10 +2241,13 @@ ul    { list-style: none; }
 }
 
 .form-contact-line {
-  font-family: var(--font-serif);
-  font-size: 12px;
-  color: var(--text-light);
-  letter-spacing: var(--track);
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text-mid);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
 }
 
 .form-contact-line a {
