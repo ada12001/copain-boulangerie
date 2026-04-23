@@ -3138,6 +3138,13 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
+  .contact-section__inner > h1 {
+    width: auto;
+    max-width: 100%;
+    left: auto;
+    transform: none;
+  }
+
   .form-field {
     border-right: none;
   }
