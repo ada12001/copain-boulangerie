@@ -5,15 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Boulangerie Copain</title>
   <meta name="description" content="Get in touch with Copain for wholesale enquiries, bespoke baking programmes, or general questions.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Boulangerie Copain">
+  <link rel="canonical" href="https://boulangeriecopain.com/contact.html">
+  <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Boulangerie Copain">
+  <meta property="og:url" content="https://boulangeriecopain.com/contact.html">
   <meta property="og:title" content="Contact — Boulangerie Copain">
   <meta property="og:description" content="Get in touch with Copain for wholesale enquiries, bespoke baking programmes, or general questions.">
+  <meta property="og:image" content="https://boulangeriecopain.com/assets/images/baguettes-oven.jpg">
+  <meta property="og:image:alt" content="Fresh baguettes baking in the oven at Boulangerie Copain">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact — Boulangerie Copain">
   <meta name="twitter:description" content="Get in touch with Copain for wholesale enquiries, bespoke baking programmes, or general questions.">
+  <meta name="twitter:image" content="https://boulangeriecopain.com/assets/images/baguettes-oven.jpg">
+  <meta name="twitter:image:alt" content="Fresh baguettes baking in the oven at Boulangerie Copain">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"ContactPage","name":"Contact — Boulangerie Copain","description":"Get in touch with Copain for wholesale enquiries, bespoke baking programmes, or general questions.","isPartOf":{"@type":"WebSite","name":"Boulangerie Copain"},"about":{"@type":"Bakery","name":"Boulangerie Copain"}}
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WW0VJDD307"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WW0VJDD307');
+  </script>
   <link rel="preconnect" href="https://use.typekit.net">
   <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://use.typekit.net/hly1zzp.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -29,7 +50,7 @@
       <span></span>
     </button>
 
-    <a class="nav__wordmark" href="home.html" aria-label="Boulangerie Copain">
+    <a class="nav__wordmark" href="index.html" aria-label="Boulangerie Copain">
       <img src="assets/images/Logo.png" alt="Boulangerie Copain">
     </a>
 
@@ -42,9 +63,12 @@
   <section class="hero" style="height: 56vh; min-height: 400px;">
     <img
       class="hero__photo"
-      src="assets/images/mono/Copain_081025_GFX_4-1.jpg"
-      alt="Bakery scene with artisan loaves and hands at work"
-      style="object-position: center 80%; filter: grayscale(1) contrast(1.08);"
+      src="assets/images/baguettes-oven.jpg"
+      alt="Fresh baguettes baking in the oven"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      style="object-position: center center; filter: grayscale(1) contrast(1.08);"
     >
     <div class="hero__scrim" style="background: linear-gradient(175deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.72) 100%);"></div>
   </section>
@@ -56,7 +80,7 @@
   <section class="contact-section">
     <div class="contact-section__inner">
 
-      <h1>Partagez le pain avec nous</h1>
+      <h1>Partagez&nbsp;le&nbsp;pain&nbsp;avec&nbsp;nous</h1>
       <h6>Break Bread With Us</h6>
       <img class="svg-divider" src="assets/Boulangerie_Web_Dividers-02.svg" alt="" aria-hidden="true">
       <p>
@@ -66,6 +90,8 @@
 
       <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
         <input type="hidden" name="access_key" value="5a94ccaa-0498-400c-a4f9-212abccc4bd8">
+        <input type="hidden" name="lead_source" id="lead-source" value="">
+        <input type="hidden" name="ip_address" id="ip-address" value="">
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;">
 
         <div class="form-row">
@@ -77,9 +103,24 @@
               name="name"
               placeholder="Jennifer Parker"
               autocomplete="name"
+              aria-describedby="name-error"
               required
             >
+            <p class="form-field__error" id="name-error" aria-live="polite"></p>
           </div>
+          <div class="form-field">
+            <label for="role">Role</label>
+            <input
+              type="text"
+              id="role"
+              name="role"
+              placeholder="Executive Chef"
+              autocomplete="organization-title"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="form-field">
             <label for="company">Company</label>
             <input
@@ -88,6 +129,15 @@
               name="company"
               placeholder="Hill Valley Deli"
               autocomplete="organization"
+            >
+          </div>
+          <div class="form-field">
+            <label for="business-type">Type of Business</label>
+            <input
+              type="text"
+              id="business-type"
+              name="type_of_business"
+              placeholder="Restaurant, hotel, cafe, caterer..."
             >
           </div>
         </div>
@@ -101,8 +151,10 @@
               name="email"
               placeholder="Jennifer@hillvalleyeats.com"
               autocomplete="email"
+              aria-describedby="email-error"
               required
             >
+            <p class="form-field__error" id="email-error" aria-live="polite"></p>
           </div>
           <div class="form-field">
             <label for="phone">Phone</label>
@@ -117,6 +169,63 @@
         </div>
 
         <div class="form-row">
+          <div class="form-field">
+            <label for="estimated-volume">Estimated Volume</label>
+            <input
+              type="text"
+              id="estimated-volume"
+              name="estimated_volume"
+              placeholder="200 loaves / week"
+            >
+          </div>
+          <div class="form-field">
+            <label for="timeline">Timeline</label>
+            <input
+              type="text"
+              id="timeline"
+              name="timeline"
+              placeholder="Within 30 days"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field form-field--full form-field--checks">
+            <span class="form-field__legend">Product(s) of Interest</span>
+            <div class="form-checks" role="group" aria-label="Product(s) of Interest">
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Bread">
+                <span>Bread</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Pastry">
+                <span>Pastry</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Viennoiserie">
+                <span>Viennoiserie</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Croissants">
+                <span>Croissants</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Custom Program">
+                <span>Custom Program</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Private Label">
+                <span>Private Label</span>
+              </label>
+              <label class="form-check">
+                <input type="checkbox" name="products_of_interest[]" value="Not Sure Yet">
+                <span>Not Sure Yet</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="form-field form-field--full">
             <label for="subject">Subject</label>
             <input
@@ -124,31 +233,35 @@
               id="subject"
               name="subject"
               placeholder="Wholesale partnerships"
+              aria-describedby="subject-error"
               required
             >
+            <p class="form-field__error" id="subject-error" aria-live="polite"></p>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-field form-field--full" style="border-bottom: none;">
+          <div class="form-field form-field--full form-field--textarea" style="border-bottom: none;">
             <label for="message">Message</label>
             <textarea
               id="message"
               name="message"
               placeholder="Tell us a little about what you're looking for…"
               rows="5"
+              aria-describedby="message-error"
               required
             ></textarea>
+            <p class="form-field__error" id="message-error" aria-live="polite"></p>
           </div>
         </div>
 
         <div class="form-submit">
           <button type="submit">Send Message</button>
           <p class="form-submit__status" id="form-status" role="status" aria-live="polite"></p>
-          <p class="form-contact-line">
+          <h6 class="form-contact-line">
             Or call us at&nbsp;
             <a href="tel:9803661200">980.366.1200</a>
-          </p>
+          </h6>
         </div>
 
       </form>
@@ -164,6 +277,8 @@
       class="contact-story__photo"
       src="assets/images/mono/Copain_081025_GFX_58 1.jpg"
       alt="Baker dusting flour over proofing baskets"
+      loading="lazy"
+      decoding="async"
     >
     <div class="contact-story__overlay"></div>
     <div class="contact-story__content">
@@ -174,27 +289,52 @@
 
 
   <!-- ============================================================
-       PROCESS STRIP
+       BEAUTY SHOT STRIP
   ============================================================ -->
-  <section class="bread-process-strip" aria-label="Bakery process gallery">
-    <div class="bread-process-strip__cell">
-      <img
-        src="assets/images/mono/Copain_081025_GFX_25 1.jpg"
-        alt="Large hearth loaves baking in a deck oven"
-      >
+  <section class="contact-gallery" id="contact-gallery" aria-label="Bakery products and process gallery" tabindex="0">
+    <button class="contact-gallery__nav contact-gallery__nav--prev" id="contact-gallery-prev" type="button" aria-label="Previous gallery image">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+      </svg>
+    </button>
+
+    <div class="contact-gallery__viewport">
+      <div class="contact-gallery__track" id="contact-gallery-track">
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/mono/Copain_081025_GFX_25 1.jpg" alt="Large hearth loaves baking in a deck oven" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/mono/Copain_081025_GFX_115 1.jpg" alt="Rows of proofing baskets filled with dough" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/copain/baguettes-basket.jpg" alt="Fresh baguettes arranged in a wicker basket" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/mono/Copain_081025_GFX_27 1.jpg" alt="Rows of shaped croissants on a baking sheet" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/mono/Copain_081025_GFX_80 1.jpg" alt="French pastries resting on a baking rack" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/copain/croissants-overhead.jpg" alt="Croissants arranged overhead on parchment" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/mono/Copain_081025_GFX_83 1.jpg" alt="Baker shaping croissant dough by hand" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/copain/pastry-twist.jpg" alt="Twisted laminated pastry on display" loading="lazy" decoding="async">
+        </figure>
+        <figure class="contact-gallery__slide">
+          <img src="assets/images/copain/sourdough-close.jpg" alt="Close view of a rustic sourdough loaf" loading="lazy" decoding="async">
+        </figure>
+      </div>
     </div>
-    <div class="bread-process-strip__cell">
-      <img
-        src="assets/images/mono/Copain_081025_GFX_27 1.jpg"
-        alt="Rows of shaped croissants on a baking sheet"
-      >
-    </div>
-    <div class="bread-process-strip__cell">
-      <img
-        src="assets/images/mono/Copain_081025_GFX_83 1.jpg"
-        alt="Baker shaping dough by hand"
-      >
-    </div>
+
+    <button class="contact-gallery__nav contact-gallery__nav--next" id="contact-gallery-next" type="button" aria-label="Next gallery image">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m8.59 16.59 1.41 1.41 6-6-6-6-1.41 1.41L13.17 12z"></path>
+      </svg>
+    </button>
   </section>
 
 
@@ -254,6 +394,8 @@
       class="partners__farm"
       src="assets/images/FarmScene.png"
       alt="Noble Food and Pursuits"
+      loading="lazy"
+      decoding="async"
     >
 
   </section>
