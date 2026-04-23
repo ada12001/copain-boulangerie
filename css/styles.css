@@ -3284,7 +3284,7 @@ blockquote {
   }
 
   .home-page .modules {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .module__btn {
@@ -3303,11 +3303,11 @@ blockquote {
 
   .home-page .module__label {
     min-width: auto;
-    width: calc(100% - 24px);
-    max-width: none;
-    font-size: 11px;
-    white-space: normal;
-    padding: 10px 12px;
+    width: auto;
+    max-width: min(78vw, 220px);
+    font-size: 14px;
+    white-space: nowrap;
+    padding: 12px 24px;
     letter-spacing: 0.22em;
   }
 
@@ -3366,7 +3366,7 @@ blockquote {
   }
 
   .video-slide__episode--coming-soon {
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 0.18em;
     white-space: normal;
   }
