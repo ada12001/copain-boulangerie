@@ -1219,6 +1219,8 @@ select:focus-visible {
   gap: 12px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .video-slide {
@@ -1227,12 +1229,16 @@ select:focus-visible {
   flex-shrink: 0;
   cursor: pointer;
   transition: opacity 0.4s;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .video-slide__inner {
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .video-slide__inner img {
@@ -1242,6 +1248,8 @@ select:focus-visible {
   display: block;
   filter: brightness(0.65);
   transition: filter 0.3s ease, transform 0.6s ease;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .video-slide:hover .video-slide__inner img {
@@ -1658,6 +1666,10 @@ select:focus-visible {
   padding: 0 64px 52px;
 }
 
+.partners__brand-link {
+  display: block;
+}
+
 .partners__brand {
   display: block;
   width: min(315px, 60vw);
@@ -1722,6 +1734,13 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.partners__logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .partners__row--4 .partners__logo {
