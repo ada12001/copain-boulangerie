@@ -389,6 +389,51 @@
 
 /* ── Hamburger drawer ────────────────────────────────────── */
 (function () {
+  var processGallery = document.querySelector('.story-process__gallery');
+  var processSlides = processGallery ? Array.prototype.slice.call(processGallery.querySelectorAll('.story-process__cell')) : [];
+  var processReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var processIndex = 0;
+  var processTimer = null;
+
+  if (processSlides.length > 1) {
+    function showProcessSlide(index) {
+      processSlides.forEach(function (slide, slideIndex) {
+        slide.classList.toggle('is-active', slideIndex === index);
+      });
+      processIndex = index;
+    }
+
+    function stopProcessCarousel() {
+      if (processTimer) {
+        window.clearInterval(processTimer);
+        processTimer = null;
+      }
+    }
+
+    function startProcessCarousel() {
+      if (processReducedMotion.matches) return;
+      stopProcessCarousel();
+      processTimer = window.setInterval(function () {
+        showProcessSlide((processIndex + 1) % processSlides.length);
+      }, 3000);
+    }
+
+    showProcessSlide(0);
+    startProcessCarousel();
+
+    processReducedMotion.addEventListener('change', function () {
+      if (processReducedMotion.matches) {
+        stopProcessCarousel();
+        showProcessSlide(0);
+      } else {
+        startProcessCarousel();
+      }
+    });
+  }
+}());
+
+/* ── Hamburger drawer ────────────────────────────────────── */
+(function () {
   var burger  = document.querySelector('.nav__burger');
   var drawer  = document.getElementById('menu-drawer');
   var overlay = document.getElementById('menu-overlay');

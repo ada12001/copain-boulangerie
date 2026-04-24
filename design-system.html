@@ -386,13 +386,13 @@
       <h6 class="ds-h6 ds-section__eyebrow">02 Typography</h6>
       <p class="ds-section__intro ds-p">
         Use semantic tags only: <code>H1</code> through <code>H6</code>, <code>P</code>, and
-        <code>blockquote</code>. Avoid component-specific text styles unless color or layout truly
-        requires an exception.
+        <code>blockquote</code>. Headline copy should be written in sentence case sitewide, with
+        uppercase reserved for the visual <code>H6</code> utility treatment and button styling.
       </p>
 
       <div class="ds-type-list">
         <div class="ds-type-row">
-          <h1 class="ds-h1">H1 Page Heading</h1>
+          <h1 class="ds-h1">H1 page heading</h1>
           <div class="ds-type-meta">
             <strong><code>H1</code></strong>
             <span>Display heading for page-level titles.</span>
@@ -400,7 +400,7 @@
         </div>
 
         <div class="ds-type-row">
-          <h2 class="ds-h2">H2 Section Heading</h2>
+          <h2 class="ds-h2">H2 section heading</h2>
           <div class="ds-type-meta">
             <strong><code>H2</code></strong>
             <span>Primary section heading.</span>
@@ -408,7 +408,7 @@
         </div>
 
         <div class="ds-type-row">
-          <h3 class="ds-h3">H3 Feature Heading</h3>
+          <h3 class="ds-h3">H3 feature heading</h3>
           <div class="ds-type-meta">
             <strong><code>H3</code></strong>
             <span>Feature title or large card heading.</span>
@@ -416,7 +416,7 @@
         </div>
 
         <div class="ds-type-row">
-          <h4 class="ds-h4">H4 SECTION TITLE</h4>
+          <h4 class="ds-h4">H4 section title</h4>
           <div class="ds-type-meta">
             <strong><code>H4</code></strong>
             <span>Spaced Garamond semibold heading for centered section titles.</span>
@@ -424,7 +424,7 @@
         </div>
 
         <div class="ds-type-row">
-          <h5 class="ds-h5">H5 Editorial Subheading</h5>
+          <h5 class="ds-h5">H5 editorial subheading</h5>
           <div class="ds-type-meta">
             <strong><code>H5</code></strong>
             <span>Centered Garamond semibold heading for editorial bridge text.</span>
@@ -432,7 +432,7 @@
         </div>
 
         <div class="ds-type-row">
-          <h6 class="ds-h6">H6 Eyebrow / Utility Label</h6>
+          <h6 class="ds-h6">H6 eyebrow / utility label</h6>
           <div class="ds-type-meta">
             <strong><code>H6</code></strong>
             <span>Eyebrow, subtitle, overline, and utility label.</span>
@@ -471,17 +471,17 @@
 
       <div class="ds-buttons">
         <div class="ds-button-card">
-          <a class="btn-border" href="#">Learn More</a>
+          <a class="btn-border" href="#">Learn more</a>
           <code>.btn-border</code>
         </div>
 
         <div class="ds-button-card ds-button-card--dark">
-          <a class="btn-border-white" href="#">Wholesale Inquiry</a>
+          <a class="btn-border-white" href="#">Wholesale inquiry</a>
           <code style="color: rgba(255,255,255,0.55);">.btn-border-white</code>
         </div>
 
         <div class="ds-button-card">
-          <button class="btn-solid" type="button">Send Message</button>
+          <button class="btn-solid" type="button">Send message</button>
           <code>.btn-solid</code>
         </div>
       </div>
@@ -490,8 +490,8 @@
     <section class="ds-section">
       <h6 class="ds-h6 ds-section__eyebrow">04 Dividers</h6>
       <p class="ds-section__intro ds-p">
-        Limit ornamental dividers to the two approved SVG options below. Use the standard dark version on light surfaces
-        and the white version on dark or image-overlay sections.
+        Multiple dividers can exist across the site, but each page should commit to one divider family and reuse it
+        consistently. Use the dark divider on light surfaces and its white reversal on dark or image-overlay sections.
       </p>
 
       <div class="ds-dividers">
@@ -500,7 +500,7 @@
             <img class="svg-divider" src="assets/Boulangerie_Web_Dividers-02.svg" alt="Divider option one">
           </div>
           <code>assets/Boulangerie_Web_Dividers-02.svg</code>
-          <p>Primary ornament for light sections and standard editorial content.</p>
+          <p>Primary ornament for light sections and standard editorial content. Use this same divider throughout a page once selected.</p>
         </div>
 
         <div class="ds-divider-card ds-divider-card--dark">
@@ -508,13 +508,47 @@
             <img class="svg-divider svg-divider--white" src="assets/Boulangerie_Web_Dividers-03.svg" alt="Divider option two">
           </div>
           <code>assets/Boulangerie_Web_Dividers-03.svg</code>
-          <p>White reversal for dark backgrounds, photography overlays, and high-contrast sections.</p>
+          <p>White reversal for dark backgrounds, photography overlays, and high-contrast sections when that page uses this divider family.</p>
         </div>
       </div>
     </section>
 
     <section class="ds-section">
-      <h6 class="ds-h6 ds-section__eyebrow">05 Rules</h6>
+      <h6 class="ds-h6 ds-section__eyebrow">05 Section padding</h6>
+      <p class="ds-section__intro ds-p">
+        Keep vertical rhythm in the section wrapper, not in one-off heading margins. Most editorial and content sections
+        should inherit the shared site cadence below and only deviate when a full-bleed media treatment truly requires it.
+      </p>
+
+      <div class="ds-rules">
+        <div class="ds-rule">
+          <h5 class="ds-h5">Desktop standard</h5>
+          <p class="ds-p">
+            Use a section shell around <code>96px 48px 88px</code> for white sections and
+            <code>88px 48px 96px</code> for denser cream/story sections.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Mobile standard</h5>
+          <p class="ds-p">
+            Collapse to roughly <code>72px 28px 64px</code> on mobile so headings, dividers, and body copy stay compact
+            without feeling cramped.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Media exceptions</h5>
+          <p class="ds-p">
+            Split layouts, carousels, and full-bleed imagery can set their own internal height, but the section above and
+            below should still return to the shared padding rhythm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ds-section">
+      <h6 class="ds-h6 ds-section__eyebrow">06 Rules</h6>
       <p class="ds-section__intro ds-p">
         Keep the system disciplined. The goal is fewer exceptions, not more.
       </p>
@@ -532,6 +566,14 @@
           <h5 class="ds-h5">Use H6 for Eyebrows</h5>
           <p class="ds-p">
             Eyebrows, subtitles, and overlines should all collapse into one uppercase utility style.
+          </p>
+        </div>
+
+        <div class="ds-rule">
+          <h5 class="ds-h5">Write headlines in sentence case</h5>
+          <p class="ds-p">
+            Page headings, section headings, and editorial statements should use sentence case copy. Let the typography create
+            the drama instead of switching capitalization systems page by page.
           </p>
         </div>
 
